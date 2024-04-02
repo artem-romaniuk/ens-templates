@@ -17,12 +17,6 @@
     @import url("{{ $template_settings['body']['font_family']['url'] }}");
 @endif
 
-@if (! empty($template_colors['events']['background']))
-.event-block {
-    background: {{ $template_colors['events']['background'] }}!important;
-}
-@endif
-
 body {
 @if (! empty($template_settings['body']['color']))
     color: {{ $template_settings['body']['color']  }}!important;
@@ -180,8 +174,16 @@ a:hover {
 @endif
 
 @if (! empty($template_colors['block_background']['base']))
-.event-item, .section-bg-color-shape {
+.event-item,
+.section-bg-color-shape,
+.wp-block-group {
     background: {{ $template_colors['block_background']['base'] }}!important;
+}
+@endif
+
+@if (! empty($template_colors['events']['background']))
+.event-block {
+    background: {{ $template_colors['events']['background'] }}!important;
 }
 @endif
 

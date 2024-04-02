@@ -9,7 +9,9 @@
                         @if (! empty($publication->issue)), Issue {{ $publication->issue }} @endif</span>
                 </h5>
 
-                <div style="font-size: 0.6em;">{{ $publication->category?->name ?? '' }}</div>
+                @if(! isset($criteria['show_category']) || $criteria['show_category'] === true)
+                    <div style="font-size: 0.6em;">{{ $publication->category?->name ?? '' }}</div>
+                @endif
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -20,7 +22,10 @@
                         <a style="text-decoration: underline; color: #000; font-size: 0.7em" href="{{ $publication->urls[0] }}" target="_blank">View</a>
                     @endif
                 </div>
-                <div style="font-size: 0.6em;">{{ $publication->created_at?->format('m/d/Y') }}</div>
+
+                @if(! isset($criteria['show_created_at']) || $criteria['show_created_at'] === true)
+                    <div style="font-size: 0.6em;">{{ $publication->created_at?->format('m/d/Y') }}</div>
+                @endif
             </div>
         </div>
     </div>

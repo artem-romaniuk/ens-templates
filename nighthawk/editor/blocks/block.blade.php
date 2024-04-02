@@ -207,7 +207,7 @@
                 </div>
             </section>
         @endif
-        
+
         @if ($data['entity'] == 'join_form')
             <section class="py-0 blog-post-section section" style="width: 100%;">
                 <div class="container">
@@ -371,7 +371,7 @@
                 </div>
             </section>
         @endif
-        
+
         @if ($data['entity'] == 'publications' && $data['items']->isNotEmpty())
             <section class="py-0" style="width: 100%;">
                 <div class="container blog">
@@ -381,11 +381,27 @@
                         @endif
                     </div>
 
-                    <div class="row posts-list tickets-page">
-                        @foreach($data['items'] as $publication)
-                            @includeIf('themes.' . current_theme() . '.blocks.publication', ['publication' => $publication])
-                        @endforeach
-                    </div>
+                    @foreach($data['items'] ?? [] as $block)
+                        <div class="row posts-list tickets-page mb-4">
+                            @if (! empty($block['criteria']['group_by']) && $block['criteria']['group_by'] != 'none')
+                                @php($items = $block['items']->sortByDesc('issue')->sortByDesc('volume')->sortByDesc($block['criteria']['group_by'])->groupBy($block['criteria']['group_by']))
+
+                                @foreach($items as $group => $publications)
+                                    <div class="col-12">
+                                        <h4 class="mb-2 font-weight-medium text-center">{{ ucfirst($block['criteria']['group_by']) }} {{ $group }}</h4>
+                                    </div>
+
+                                    @foreach($publications as $publication)
+                                        @includeIf('themes.' . current_theme() . '.blocks.publication', ['publication' => $publication, 'criteria' => $block['criteria']])
+                                    @endforeach
+                                @endforeach
+                            @else
+                                @foreach($block['items'] as $publication)
+                                    @includeIf('themes.' . current_theme() . '.blocks.publication', ['publication' => $publication, 'criteria' => $block['criteria']])
+                                @endforeach
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
             </section>
         @endif
