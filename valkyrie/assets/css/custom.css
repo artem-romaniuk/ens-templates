@@ -1,0 +1,147 @@
+/*
+Custom Css
+*/
+
+.expand-submenu {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .progress-table-wrap {
+        overflow-x: scroll
+    }
+    .expand-submenu {
+        display: flex; 
+        justify-content: end; 
+        align-items: center; 
+        cursor: pointer;
+        width: 15em;
+    }
+    .dropdown-menu {
+        margin-left: 30px;
+        padding-left: 15px;
+    }
+}
+
+.progress-table {
+    padding: 15px 0px 30px 0px;
+    min-width: 400px
+}
+
+.progress-table .serial {
+    width: 11.83%;
+    padding-left: 30px
+}
+
+.progress-table .country {
+    width: 28.07%
+}
+
+.progress-table .visit {
+    width: 19.74%
+}
+
+.progress-table .percentage {
+    width: 40.36%;
+    padding-right: 50px
+}
+
+.progress-table .table-head {
+    display: flex
+}
+
+.progress-table .table-head .serial, .progress-table .table-head .country, .progress-table .table-head .visit, .progress-table .table-head .percentage {
+    color: #59ab6e;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.progress-table .table-row {
+    padding: 10px 0;
+    border-top: 1px solid #59ab6e;
+    display: flex
+}
+
+.progress-table .table-row .serial, .progress-table .table-row .country, .progress-table .table-row .visit, .progress-table .table-row .percentage {
+    display: flex;
+    align-items: center
+}
+
+.progress-table .table-row .country img {
+    margin-right: 15px
+}
+
+.progress-table .table-row .percentage .progress {
+    width: 80%;
+    border-radius: 0px;
+    background: transparent
+}
+
+.progress-table .table-row .percentage .progress .progress-bar {
+    height: 5px;
+    line-height: 5px
+}
+
+.progress-table .table-head {
+    display: flex
+}
+
+.h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px !important;
+}
+
+.h5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px !important;
+}
+
+.img-box img {
+    max-width: 100%;
+} 
+
+@media (min-width: 1279px) {
+    .dropdown-menu {
+        top: 95%;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown:hover .dropdown-menu .dropdown .dropdown-menu {
+      display: none;
+    }
+    .dropdown .dropdown-menu .dropdown:hover .dropdown-menu {
+      display: block;
+      left: 100%;
+      top: 0;
+    }
+}
+
+.gallery_caption {
+    display: inline-block;
+    z-index: 2;
+    position: absolute;
+    line-height: 1.4;
+    margin: 0 0 10px;
+    left: 20px;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0;
+    transition: transform 300ms,opacity 300ms;
+    max-height: 220px;
+    padding: 5px;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 10;
+    font-size: 1rem !important;
+}
+  .gallery_item:hover .gallery_caption {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+    background: rgba(0, 0, 0, 0.70);
+    color: rgba(187, 187, 187, 1.00);
+}

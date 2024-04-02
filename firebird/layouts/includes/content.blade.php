@@ -1,0 +1,1 @@
+{!! str_replace('wp-block-button__link', 'wp-block-button__link cta-btn d-block mt-0', $content) !!}
