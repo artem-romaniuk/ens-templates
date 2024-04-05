@@ -13,7 +13,7 @@
         .mobile-nav-active .burger-nav {
             right: 0;
         }
-        
+
         .burger-nav ul {
             position: absolute;
             inset: 0;
@@ -26,8 +26,8 @@
             display: block;
         }
     </style>
-    <nav 
-        id="navbar" 
+    <nav
+        id="navbar"
         class="navbar @if($align == 'burger') burger-nav @endif"
         >
         <ul
@@ -46,7 +46,15 @@
                     <a href="{{ route('login') }}" style="line-height: 50px; height: 50px;" target="_blank" rel="nofollow">Log In</a>
                 @endauth
             </li>
-            
+
+            @auth()
+                @if (! is_admin())
+                    <li>
+                        <a href="{{ main_profile_url() }}" style="line-height: 50px; height: 50px;" rel="nofollow">Profile</a>
+                    </li>
+                @endif
+            @endauth
+
             @auth()
                 <li>
                     <a href="{{ route('logout') }}" style="line-height: 50px; height: 50px;" rel="nofollow">Logout</a>

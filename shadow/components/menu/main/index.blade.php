@@ -37,7 +37,15 @@
                     <a class="btn btn-primary ml-lg-2" href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
                 @endauth
             </li>
-            
+
+            @auth()
+                @if (! is_admin())
+                    <li class="nav-item">
+                        <a class="btn btn-primary ml-lg-2" href="{{ main_profile_url() }}" rel="nofollow">Profile</a>
+                    </li>
+                @endif
+            @endauth
+
             @auth()
                 <li>
                     <a class="btn btn-primary ml-lg-2" href="{{ route('logout') }}" rel="nofollow">Logout</a>

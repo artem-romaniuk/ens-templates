@@ -58,15 +58,15 @@
 
 @if (! empty($items))
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul 
-            class="navbar-nav" 
+        <ul
+            class="navbar-nav"
             style="
-                @if ($align == 'left') margin-right: auto !important; 
-                @elseif ($align == 'right') margin-left: auto !important; 
-                @elseif ($align == 'center') margin-inline: auto !important; 
+                @if ($align == 'left') margin-right: auto !important;
+                @elseif ($align == 'right') margin-left: auto !important;
+                @elseif ($align == 'center') margin-inline: auto !important;
                 @endif">
             @include('themes.' . current_theme() . '.components.menu.main.items', ['items' => $items])
-      
+
             <li class="nav-item">
                 @auth()
                     @if (has_any_access(['*']))
@@ -76,7 +76,15 @@
                     <a href="{{ route('login') }}" class="nav-link" target="_blank" rel="nofollow">Log In</a>
                 @endauth
             </li>
-            
+
+            @auth()
+                @if (! is_admin())
+                    <li class="nav-item">
+                        <a href="{{ main_profile_url() }}" class="nav-link" rel="nofollow">Profile</a>
+                    </li>
+                @endif
+            @endauth
+
             @auth()
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" rel="nofollow">Logout</a>
@@ -136,13 +144,13 @@
                     icon.classList.toggle("bi-dash");
                 }
 
-                
+
             });
         }
 
         // if (!document.getElementById('l2').contains(e.target) && (!document.getElementById('logo-menu').contains(e.target))){
         //     alert("Clicked outside l2 and logo-menu");
         //     document.getElementById('l2').style.height="0px"; //the same code you've used to hide the menu
-        // } 
+        // }
     })
 </script>

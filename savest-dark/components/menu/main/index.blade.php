@@ -19,20 +19,28 @@
                 @include('themes.' . current_theme() . '.components.menu.main.items', ['items' => $items, 'side' => $side])
 
                 <li>
+                    @auth()
+                        @if (has_any_access(['*']))
+                            <a href="{{ main_admin_url() }}" style="line-height: 50px; height: 50px; margin-top: 20px; margin-bottom: 20px;" rel="nofollow">Admin</a>
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}" style="line-height: 50px; height: 50px; margin-top: 20px; margin-bottom: 20px;" target="_blank" rel="nofollow">Log In</a>
+                    @endauth
+                </li>
+
                 @auth()
-                    @if (has_any_access(['*']))
-                        <a href="{{ main_admin_url() }}" style="line-height: 50px; height: 50px; margin-top: 20px; margin-bottom: 20px;" rel="nofollow">Admin</a>
+                    @if (! is_admin())
+                        <li>
+                            <a href="{{ main_profile_url() }}" style="line-height: 50px; height: 50px; margin-top: 20px; margin-bottom: 20px;" rel="nofollow">Profile</a>
+                        </li>
                     @endif
-                @else
-                    <a href="{{ route('login') }}" style="line-height: 50px; height: 50px; margin-top: 20px; margin-bottom: 20px;" target="_blank" rel="nofollow">Log In</a>
                 @endauth
-                </li>
-                
+
                 @auth()
-                <li>
-                    <a href="{{ route('logout') }}" rel="nofollow">Logout</a>
-                </li>
-            @endauth
+                    <li>
+                        <a href="{{ route('logout') }}" rel="nofollow">Logout</a>
+                    </li>
+                @endauth
             </ul>
         </div>
     @endif

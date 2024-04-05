@@ -1,9 +1,9 @@
 @if($align == 'burger')
 <style>
     .expand-submenu {
-        display: flex; 
-        justify-content: end; 
-        align-items: center; 
+        display: flex;
+        justify-content: end;
+        align-items: center;
         cursor: pointer;
         width: 15em;
     }
@@ -36,12 +36,20 @@
                 <a href="{{ route('login') }}" class="nav-link" target="_blank" rel="nofollow">Log In</a>
             @endauth
         </li>
-        
+
         @auth()
-                <li>
-                    <a href="{{ route('logout') }}" class="nav-link" rel="nofollow">Logout</a>
+            @if (! is_admin())
+                <li class="nav-item">
+                    <a href="{{ main_profile_url() }}" class="nav-link" rel="nofollow">Profile</a>
                 </li>
-            @endauth
+            @endif
+        @endauth
+
+        @auth()
+            <li>
+                <a href="{{ route('logout') }}" class="nav-link" rel="nofollow">Logout</a>
+            </li>
+        @endauth
     </ul>
 @endif
 
