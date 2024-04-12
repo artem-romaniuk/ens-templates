@@ -194,6 +194,14 @@ footer {
     color: {{ $template_colors['additional_elements']['base'] }} !important;
     text-shadow: 0 2px 4px {{ $template_colors['additional_elements']['base'] }}80 !important;
 }
+.wp-block-column h1::after,
+.wp-block-column h2::after,
+.wp-block-column h3::after,
+.wp-block-column h4::after,
+.wp-block-column h5::after,
+.wp-block-column h6::after {
+    background-color: {{ $template_colors['additional_elements']['base'] }} !important;
+}
 @endif
 
 @if (! empty($template_colors['titles']['base']))
@@ -220,7 +228,6 @@ h1, h2, h3, h4, h5, .widget-title, .post-title a {
     width: 32px;
     height: 3px;
     border-radius: 40px;
-    background-color: #6C55F9;
 }
 
 .wp-block-column {
