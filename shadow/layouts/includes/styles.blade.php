@@ -211,7 +211,7 @@ h1, h2, h3, h4, h5, .widget-title, .post-title a {
 @endif
 
 .wp-block-columns {
-    box-shadow: 0 2px 6px rgba(100, 95, 136, 0.16);
+    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.45);
     padding: 10px 0;
 }
 
