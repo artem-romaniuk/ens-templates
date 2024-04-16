@@ -230,6 +230,36 @@ h1, h2, h3, h4, h5, .widget-title, .post-title a {
     border-radius: 40px;
 }
 
+.wp-block-column h1.has-text-align-center::after,
+.wp-block-column h2.has-text-align-center::after,
+.wp-block-column h3.has-text-align-center::after,
+.wp-block-column h4.has-text-align-center::after,
+.wp-block-column h5.has-text-align-center::after,
+.wp-block-column h6.has-text-align-center::after {
+    margin: 0.2em auto 0.5em auto;
+}
+
+.wp-block-column h1.has-text-align-right,
+.wp-block-column h2.has-text-align-right,
+.wp-block-column h3.has-text-align-right,
+.wp-block-column h4.has-text-align-right,
+.wp-block-column h5.has-text-align-right,
+.wp-block-column h6.has-text-align-right {
+    position: relative;
+    margin-bottom: calc(0.5rem + 0.5em);
+}
+
+.wp-block-column h1.has-text-align-right::after,
+.wp-block-column h2.has-text-align-right::after,
+.wp-block-column h3.has-text-align-right::after,
+.wp-block-column h4.has-text-align-right::after,
+.wp-block-column h5.has-text-align-right::after,
+.wp-block-column h6.has-text-align-right::after {
+    position: absolute;
+    bottom: -0.8em;
+    right: 0;
+}
+
 .wp-block-column {
 padding: 0 10px;
 }
