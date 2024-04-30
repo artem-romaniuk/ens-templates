@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name', '') }}</title>
-    
+
     @if (! empty(settings('favicon.url')))
     	<!-- Favicon -->
         <link rel="icon" href="{{ settings('favicon.url') }}" type="image/x-icon">
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ theme_asset('css/theme.css') }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
 
     <style>
         .quote {
@@ -55,7 +57,7 @@
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @stack('styles')
-    
+
     @if (! empty(settings('scripts.before_close_head')))
         {!! settings('scripts.before_close_head') !!}
     @endif
@@ -67,7 +69,9 @@
 
 <div class="back-to-top"></div>
 
+<div id="content">
 @yield('content')
+</div>
 
 <footer class="page-footer bg-image" style="background-image: url(../assets/img/world_pattern.svg);">
     <div class="container">
@@ -112,6 +116,8 @@
         <p class="text-center" id="copyright">Powered by <a class="footer-link" href="https://easynetsites.com/">EasyNetSites</a> Webware</p>
     </div>
 </footer>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <script src="{{ theme_asset('js/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ theme_asset('js/bootstrap.bundle.min.js') }}"></script>

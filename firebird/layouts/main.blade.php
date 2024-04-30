@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <title>{{ config('app.name', '') }}</title>
-    
+
     @if (! empty(settings('favicon.url')))
     	<!-- Favicon -->
         <link rel="icon" href="{{ settings('favicon.url') }}" type="image/x-icon">
@@ -22,6 +22,8 @@
     <link href="{{ theme_asset('css/responsive.css') }}" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
 
     <style>
         .cta-btn {
@@ -72,7 +74,7 @@
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @stack('styles')
-    
+
     @if (! empty(settings('scripts.before_close_head')))
         {!! settings('scripts.before_close_head') !!}
     @endif
@@ -82,7 +84,9 @@
     {!! settings('scripts.after_open_body') !!}
 @endif
 
-@yield('content')
+<div id="content">
+    @yield('content')
+</div>
 
 <section class="info_section footer">
     <div class="container">
@@ -131,15 +135,15 @@
                     @if (! empty(settings('company.logo.' . settings('logo_positions.footer'))))
                         <div class="info_logo">
                             <a href="{{ route('home') }}" class="navbar-brand">
-                                <img 
-                                    src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}" 
-                                    alt="{{ settings('company.name') }}" 
+                                <img
+                                    src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}"
+                                    alt="{{ settings('company.name') }}"
                                     style="
                                         max-height: 50px; width: auto;
                                         @if(! empty(settings('logo_settings.footer.height'))) height: {{ settings('logo_settings.footer.height') }}px; max-height: none; @endif
                                         @if(! empty(settings('logo_settings.footer.width'))) width: {{ settings('logo_settings.footer.width') }}px; max-width: none; @endif
                                         @if(! empty(settings('logo_settings.footer.opacity'))) opacity: {{ settings('logo_settings.footer.opacity') }}%; @endif
-                                    " 
+                                    "
                                 />
                             </a>
                         </div>
@@ -169,6 +173,8 @@
         <p>Powered by <a class="footer-link" href="https://easynetsites.com/">EasyNetSites</a> Webware</p>
     </div>
 </footer>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <script src="{{ theme_asset('js/jquery-3.4.1.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">

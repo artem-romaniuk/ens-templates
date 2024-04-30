@@ -1,5 +1,5 @@
 (function ($) {
-	
+
 	"use strict";
 
 	$('.owl-show-events').owlCarousel({
@@ -28,15 +28,15 @@
       day = hour * 24;
 
 	let countDown = new Date('Mar 31, 2022 09:30:00').getTime(),
-    x = setInterval(function() {    
+    x = setInterval(function() {
 
       let now = new Date().getTime(),
           distance = countDown - now;
 
-      document.getElementById('days').innerText = Math.floor(distance / (day)),
-        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      // document.getElementById('days').innerText = Math.floor(distance / (day)),
+      //   document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+      //   document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+      //   document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
       //do something later when date is reached
       //if (distance < 0) {
@@ -49,7 +49,7 @@
 	$(function() {
         $("#tabs").tabs();
     });
-	
+
 
 	$('.schedule-filter li').on('click', function() {
         var tsfilter = $(this).data('tsfilter');
@@ -76,11 +76,11 @@
 
 	// Scroll animation init
 	window.sr = new scrollReveal();
-	
+
 
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
-		$(".menu-trigger").on('click', function() {	
+		$(".menu-trigger").on('click', function() {
 			$(this).toggleClass('active');
 			$('.header-area .nav').slideToggle(200);
 		});

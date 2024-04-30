@@ -28,6 +28,8 @@
 
     <link href="{{ theme_asset('css/main.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
+
     <style>
         .event-short-description, .post-short-description {
             display: -webkit-box;
@@ -81,7 +83,7 @@
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @stack('styles')
-    
+
     @if (! empty(settings('scripts.before_close_head')))
         {!! settings('scripts.before_close_head') !!}
     @endif
@@ -93,7 +95,7 @@
 @endif
 
     @php($align = ! empty($template_settings['header']['menu_position']['apply']) ? ($template_settings['header']['menu_position']['value'] ?? 'center') : 'center')
-    @if($align == 'burger') 
+    @if($align == 'burger')
     <style>
         .mobile-nav-show {
             color: rgba(255, 255, 255, 0.9);
@@ -149,7 +151,7 @@
             background-color: rgba(20, 35, 51, 0.6);
         }
         .navbar .dropdown ul {
-            left: 0px; 
+            left: 0px;
             top: 0px;
             z-index: 9998;
             opacity: 1;
@@ -176,9 +178,9 @@
                         @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))
                             @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                                 <a href="{{ route('home') }}" class="navbar-brand">
-                                    <img 
+                                    <img
                                         class="mt-2"
-                                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
+                                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                         alt="{{ settings('company.name') }}"
                                         style="
                                             height: 75px; width: auto;
@@ -208,7 +210,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div style="width: 100%;">
             <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
                 <div style="width: 100%; display: flex;
@@ -218,7 +220,7 @@
                     @endif">
                     <x-menu-component layout="main" :align="$align" />
                 </div>
-    
+
                 <div style="display: flex; justify-content: end;">
                     <i style="font-size: 36px;" class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
                     <i style="font-size: 36px;" class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -231,9 +233,9 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                 <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-                    <img 
-                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                        alt="{{ settings('company.name') }}" 
+                    <img
+                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                        alt="{{ settings('company.name') }}"
                         class="img-fluid"
                         style="
                             height: 75px; width: auto;
@@ -253,7 +255,7 @@
                 <x-menu-component layout="main" :align="$align" />
             </div>
 
-            
+
             <div style="display: flex; justify-content: end;">
                 <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
                 <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -262,7 +264,9 @@
     </header>
 @endif
 
+<div id="content">
 @yield('content')
+</div>
 
 <footer id="footer" class="footer">
     <div class="footer-content">
@@ -306,6 +310,8 @@
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <div id="preloader"></div>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <script src="{{ theme_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ theme_asset('vendor/aos/aos.js') }}"></script>

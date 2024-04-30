@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>{{ config('app.name', '') }}</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+
     @if (! empty(settings('favicon.url')))
     	<!-- Favicon -->
         <link rel="icon" href="{{ settings('favicon.url') }}" type="image/x-icon">
     @endif
-    
+
     <!-- Font CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,10 @@
     <link rel="stylesheet" href="{{ theme_asset('css/plugins/fancybox.min.css') }}">
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ theme_asset('css/style.css?ver=' . time()) }}">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
 
 @include('themes.' . current_theme() . '.layouts.includes.styles')
 @stack('styles')
@@ -137,7 +139,9 @@
 </div>
 </header>
 
+<div id="content">
 @yield('content')
+</div>
 
 <footer class="footer-section section" style="margin-top: 80px">
 <div class="footer-main section-padding bg-img">
@@ -227,6 +231,8 @@
 </div>
 </aside>
 </div>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <script src="{{ theme_asset('js/vendor/modernizr-3.11.7.min.js') }}"></script>
 <script src="{{ theme_asset('js/vendor/jquery-3.6.0.min.js') }}"></script>

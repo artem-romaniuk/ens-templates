@@ -22,6 +22,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
+
     <style>
         .editor-blockquote {
             overflow: hidden;
@@ -99,7 +101,7 @@
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @stack('styles')
-    
+
     @if (! empty(settings('scripts.before_close_head')))
         {!! settings('scripts.before_close_head') !!}
     @endif
@@ -117,9 +119,9 @@
                     <div class="d-flex align-items-center">
                         @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                             <a href="{{ route('home') }}" class="navbar-brand text-success logo h1 align-self-center">
-                                <img 
-                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                                    alt="{{ settings('company.name') }}" 
+                                <img
+                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                                    alt="{{ settings('company.name') }}"
                                     style="
                                         max-height: 50px; width: auto;
                                         @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
@@ -135,13 +137,13 @@
                             <i class="fa fa-envelope mx-2"></i>
                             <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:{{ settings('company.email') }}">{{ settings('company.email') }}</a>
                         @endif
-        
+
                         @if (! empty(settings('company.phone')))
                             <i class="fa fa-phone mx-2"></i>
                             <a class="navbar-sm-brand text-light text-decoration-none" href="tel:{{ settings('company.phone') }}">{{ settings('company.phone') }}</a>
                         @endif
                     </div>
-        
+
                         @if (! empty(settings('social_links')))
                             <ul class="list-inline text-left footer-icons m-0 d-flex align-items-center">
                                 @foreach(settings('social_links', []) as $item)
@@ -163,7 +165,7 @@
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-        
+
                 <div class="align-self-center collapse navbar-collapse flex-fill @if($align != 'burger') d-xl-flex @endif justify-content-xl-between" id="templatemo_main_nav">
                     <div class="flex-fill">
                         <x-menu-component layout="main" :align="$align" />
@@ -180,13 +182,13 @@
                             <i class="fa fa-envelope mx-2"></i>
                             <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:{{ settings('company.email') }}">{{ settings('company.email') }}</a>
                         @endif
-        
+
                         @if (! empty(settings('company.phone')))
                             <i class="fa fa-phone mx-2"></i>
                             <a class="navbar-sm-brand text-light text-decoration-none" href="tel:{{ settings('company.phone') }}">{{ settings('company.phone') }}</a>
                         @endif
                     </div>
-        
+
                         @if (! empty(settings('social_links')))
                             <ul class="list-inline text-left footer-icons">
                                 @foreach(settings('social_links', []) as $item)
@@ -207,8 +209,8 @@
             <div class="container d-flex justify-content-between align-items-center">
                 @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                     <a href="{{ route('home') }}" class="navbar-brand text-success logo h1 align-self-center">
-                        <img 
-                            src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
+                        <img
+                            src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                             alt="{{ settings('company.name') }}"
                             style="
                                 max-height: 50px; width: auto;
@@ -219,11 +221,11 @@
                         />
                     </a>
                 @endif
-        
+
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-        
+
                 <div class="align-self-center collapse navbar-collapse flex-fill @if($align != 'burger') d-xl-flex @endif justify-content-xl-between" id="templatemo_main_nav">
                     <div class="flex-fill">
                         @php($align = ! empty($template_settings['header']['menu_position']['apply']) ? ($template_settings['header']['menu_position']['value'] ?? 'center') : 'center')
@@ -234,7 +236,9 @@
         </nav>
     @endif
 
+<div id="content">
 @yield('content')
+</div>
 
 <footer class="@if (empty($template_colors['footer_background']['base'])) bg-dark @endif" id="tempaltemo_footer">
     <div class="container">
@@ -244,9 +248,9 @@
                 @if (! empty(settings('company.logo.' . settings('logo_positions.footer'))))
                     <div class="info_logo">
                         <a href="{{ route('home') }}" class="navbar-brand">
-                            <img 
-                                src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}" 
-                                alt="{{ settings('company.name') }}" 
+                            <img
+                                src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}"
+                                alt="{{ settings('company.name') }}"
                                 style="
                                     max-height: 50px; width: auto;
                                     @if(! empty(settings('logo_settings.footer.height')) && settings('logo_settings.footer.height') != 'auto') height: {{ settings('logo_settings.footer.height') }}px !important; max-height: none; @endif
@@ -318,6 +322,8 @@
         </div>
     </div>
 </footer>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <script src="{{ theme_asset('js/jquery-1.11.0.min.js') }}"></script>
 <script src="{{ theme_asset('js/jquery-migrate-1.2.1.min.js') }}"></script>

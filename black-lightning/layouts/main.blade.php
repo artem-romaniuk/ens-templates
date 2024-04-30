@@ -6,12 +6,12 @@
     <title>{{ config('app.name', '') }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+
     @if (! empty(settings('favicon.url')))
     	<!-- Favicon -->
         <link rel="icon" href="{{ settings('favicon.url') }}" type="image/x-icon">
     @endif
-    
+
     <!-- Font CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,11 +22,13 @@
     <link rel="stylesheet" href="{{ theme_asset('css/plugins/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ theme_asset('css/plugins/icofont.min.css') }}">
     <link rel="stylesheet" href="{{ theme_asset('css/plugins/fancybox.min.css') }}">
-    
+
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{ theme_asset('css/style.min.css?ver=' . time()) }}">
     <link rel="stylesheet" href="{{ theme_asset('css/laraberg.css') }}?ver=16">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
 
 @include('themes.' . current_theme() . '.layouts.includes.styles')
 @stack('styles')
@@ -51,15 +53,15 @@
                         @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                             <div class="header-logo">
                                 <a href="{{ route('home') }}">
-                                    <img 
-                                        class="logo-main" 
-                                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                                        alt="{{ settings('company.name') }}" 
+                                    <img
+                                        class="logo-main"
+                                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                                        alt="{{ settings('company.name') }}"
                                         style="
                                             @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                             @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                             @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                        " 
+                                        "
                                     />
                                 </a>
                             </div>
@@ -79,15 +81,15 @@
                         @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                             <div class="header-logo">
                                 <a href="{{ route('home') }}">
-                                    <img 
-                                        class="logo-main" 
-                                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                                        alt="{{ settings('company.name') }}" 
+                                    <img
+                                        class="logo-main"
+                                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                                        alt="{{ settings('company.name') }}"
                                         style="
                                             @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                             @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                             @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                        " 
+                                        "
                                     />
                                 </a>
                             </div>
@@ -117,22 +119,22 @@
     <div class="container-fluid header-container-fluid py-2">
         <div class="row justify-content-between align-items-center">
             @if (
-                ($template_settings['header']['logo_position']['value'] ?? '') == 'inline_menu' || empty($template_settings['header']['logo_position']['apply']) 
+                ($template_settings['header']['logo_position']['value'] ?? '') == 'inline_menu' || empty($template_settings['header']['logo_position']['apply'])
                 && (($template_settings['header']['menu_position']['value'] ?? '') != 'burger' || empty($template_settings['header']['logo_position']['apply']))
             )
                 <div class="col-auto">
                     @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                         <div class="header-logo">
                             <a href="{{ route('home') }}">
-                                <img 
-                                    class="logo-main" 
-                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                                    alt="{{ settings('company.name') }}" 
+                                <img
+                                    class="logo-main"
+                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                                    alt="{{ settings('company.name') }}"
                                     style="
                                         @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                         @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                         @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                    " 
+                                    "
                                 />
                             </a>
                         </div>
@@ -144,15 +146,15 @@
                     @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                         <div class="header-logo">
                             <a href="{{ route('home') }}">
-                                <img 
-                                    class="logo-main" 
-                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                                    alt="{{ settings('company.name') }}" 
+                                <img
+                                    class="logo-main"
+                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                                    alt="{{ settings('company.name') }}"
                                     style="
                                         @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                         @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                         @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                    " 
+                                    "
                                 />
                             </a>
                         </div>
@@ -178,7 +180,9 @@
 </div>
 </header>
 
-@yield('content')
+<div id="content">
+    @yield('content')
+</div>
 
 <footer class="footer-section section" style="margin-top: 80px">
 <div class="footer-main section-padding bg-img" style="padding: 30px 0 10px 0;">
@@ -188,15 +192,15 @@
                 <div class="footer-widget text-center text-md-start">
                     @if (! empty(settings('company.logo.' . settings('logo_positions.footer'))))
                         <a href="{{ route('home') }}" class="footer-widget-logo me-auto me-md-0 ms-auto ms-md-0">
-                            <img 
-                                class="logo-main" 
-                                src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}" 
-                                alt="{{ settings('company.name') }}" 
+                            <img
+                                class="logo-main"
+                                src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}"
+                                alt="{{ settings('company.name') }}"
                                 style="
                                     @if(! empty(settings('logo_settings.footer.height')) && settings('logo_settings.footer.height') != 'auto') height: {{ settings('logo_settings.footer.height') }}px !important; max-height: none; @endif
                                     @if(! empty(settings('logo_settings.footer.width')) && settings('logo_settings.footer.width') != 'auto') width: {{ settings('logo_settings.footer.width') }}px !important; max-width: none; @endif
                                     @if(! empty(settings('logo_settings.footer.opacity'))) opacity: {{ settings('logo_settings.footer.opacity') }}%; @endif
-                                " 
+                                "
                             />
                         </a>
                     @endif
@@ -278,6 +282,8 @@
 </div>
 </aside>
 </div>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <script src="{{ theme_asset('js/vendor/modernizr-3.11.7.min.js') }}"></script>
 <script src="{{ theme_asset('js/vendor/jquery-3.6.0.min.js') }}"></script>

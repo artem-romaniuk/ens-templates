@@ -29,6 +29,8 @@
     <!-- Template Main CSS File -->
     <link href="{{ theme_asset('css/style.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset('site/css/site.css?var' . time()) }}" />
+
     <style>
         .button a {
             display: inline-block;
@@ -71,7 +73,7 @@
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @stack('styles')
-    
+
     @if (! empty(settings('scripts.before_close_head')))
         {!! settings('scripts.before_close_head') !!}
     @endif
@@ -89,9 +91,9 @@
                     @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))
                         @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                             <a href="{{ route('home') }}" class="navbar-brand">
-                                <img 
+                                <img
                                     class="mt-2 pb-2"
-                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
+                                    src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                     alt="{{ settings('company.name') }}"
                                     style="
                                         height: 50px;
@@ -132,9 +134,9 @@
             @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                 <div class="logo">
                     <a href="{{ route('home') }}">
-                        <img 
+                        <img
                             class="mt-2 pb-2"
-                            src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
+                            src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                             alt="{{ settings('company.name') }}" class="img-fluid"
                             style="
                                 height: 50px;
@@ -155,7 +157,9 @@
     </header>
 @endif
 
-@yield('content')
+<div id="content">
+    @yield('content')
+</div>
 
 <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
     <div class="footer-top">
@@ -194,6 +198,8 @@
 </footer>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<script src="{{ asset('site/js/site.js?var' . time()) }}"></script>
 
 <!-- Vendor JS Files -->
 <script src="{{ theme_asset('vendor/purecounter/purecounter_vanilla.js') }}"></script>
