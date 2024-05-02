@@ -216,7 +216,7 @@
         @endif
 
         @if ($data['entity'] == 'surname_research' && has_tenant_module('surname_research'))
-            <surname-research-component />
+            <surname-research-component></surname-research-component>
         @endif
 
         @if ($data['entity'] == 'gallery' && $data['items']->isNotEmpty())
