@@ -35,6 +35,15 @@
 @if (! empty(settings('scripts.before_close_head')))
     {!! settings('scripts.before_close_head') !!}
 @endif
+
+    <script>
+        window.safeData = {
+            csrfToken: '{{ csrf_token() }}',
+            isAuth: '{{ auth()->check() }}',
+            authToken: '{{ session('auth_token', '') }}',
+            companyName: '{{ settings('company.name') }}'
+        };
+    </script>
 </head>
 <body>
 @if (! empty(settings('scripts.after_open_body')))

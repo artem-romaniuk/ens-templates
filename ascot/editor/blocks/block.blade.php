@@ -215,6 +215,10 @@
             <join-form-component :plans="{{ $data['items'] ?? [] }}" :payment-methods="{{ json_encode(payment_methods() ?? '{}') }}"></join-form-component>
         @endif
 
+        @if ($data['entity'] == 'surname_research' && has_tenant_module('surname_research'))
+            <surname-research-component />
+        @endif
+
         @if ($data['entity'] == 'gallery' && $data['items']->isNotEmpty())
             <section class="py-0" style="width: 100%;">
                 <div class="container blog">
