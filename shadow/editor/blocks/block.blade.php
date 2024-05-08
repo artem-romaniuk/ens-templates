@@ -92,32 +92,34 @@
                         @endif
                     </div>
 
-                    <div class="mx-auto d-flex mt-3 @if (isset($data['data']['columns']) && $data['data']['columns'] == 1) flex-column w-100 @else flex-wrap justify-content-center @endif">
-                        @foreach($data['items'] as $leader)
-                            <div class="mb-4 px-8 officers-block" style="width: {{ 100 / ($data['data']['columns'] ?? 1) }}%">
-                                <h6 class="text-center">{{ $leader->name }}</h6>
-                                <div>
-                                    @foreach($leader->positions as $position)
-                                        <div class="d-flex justify-content-center" style="align-items: center">
-                                            <div style="width: 50%; text-align: right">{{ $position->name }}: </div>
-                                            <div class="mx-1"></div>
-                                            <div style="width: 50%;">
-                                                @foreach($position->users as $user)
-                                                    <div>
-                                                        @if (! empty($position->email))
-                                                            <a href="mailto:{{ $position->email }}">{{ $user->organization_name ?? $user->name }}</a>
-                                                        @else
-                                                            {{ $user->organization_name ?? $user->name }}
-                                                        @endif
-                                                    </div>
-                                                @endforeach
+                    @foreach(distribute_array($data['items'], $data['data']['columns'] ?? 1) as $items)
+                        <div class="mx-auto d-flex mt-3 flex-wrap">
+                            @foreach($items as $leader)
+                                <div class="mb-4 px-8 officers-block" style="width: {{ 100 / ($data['data']['columns'] ?? 1) }}%">
+                                    <h6 class="text-center">{{ $leader->name }}</h6>
+                                    <div>
+                                        @foreach($leader->positions as $position)
+                                            <div class="d-flex justify-content-center" style="align-items: center">
+                                                <div style="width: 50%; text-align: right">{{ $position->name }}: </div>
+                                                <div class="mx-1"></div>
+                                                <div style="width: 50%;">
+                                                    @foreach($position->users as $user)
+                                                        <div>
+                                                            @if (! empty($position->email))
+                                                                <a href="mailto:{{ $position->email }}">{{ $user->organization_name ?? $user->name }}</a>
+                                                            @else
+                                                                {{ $user->organization_name ?? $user->name }}
+                                                            @endif
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </div>
             </section>
         @endif
