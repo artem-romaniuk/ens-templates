@@ -92,8 +92,8 @@
                         @endif
                     </div>
 
-                    @foreach(distribute_array($data['items'], $data['data']['columns'] ?? 1) as $items)
-                        <div class="mx-auto d-flex mt-3 flex-wrap">
+                    <div class="mx-auto d-flex mt-3 flex-wrap">
+                        @foreach(distribute_array($data['items'], $data['data']['columns'] ?? 1) as $items)
                             @foreach($items as $leader)
                                 <div class="mb-4 px-8 officers-block" style="width: {{ 100 / ($data['data']['columns'] ?? 1) }}%">
                                     <h6 class="text-center">{{ $leader->name }}</h6>
@@ -118,8 +118,8 @@
                                     </div>
                                 </div>
                             @endforeach
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </section>
         @endif
