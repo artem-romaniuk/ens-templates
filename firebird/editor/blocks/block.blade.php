@@ -185,7 +185,7 @@
                                 @endif
 
                                 @if (session()->has('status') && session('status') == 'success')
-                                    <div class="sent-message" style="display: block">{!! $data['data']['success_send_message'] !!}</div>
+                                    <div class="sent-message" style="display: block">{!! $data['data']['success_send_message'] ?? '' !!}</div>
                                 @endif
                             </div>
                             <div class="btn_box">

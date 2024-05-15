@@ -150,7 +150,7 @@
 
                         @if (session()->has('status') && session('status') == 'success')
                             <div class="form-message alert-success fade show alert mb-4">
-                                {!! $data['data']['success_send_message'] !!}
+                                {!! $data['data']['success_send_message'] ?? '' !!}
                             </div>
                         @endif
 
