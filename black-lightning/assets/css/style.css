@@ -533,7 +533,7 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
 }
 
 .header-bottom {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255);
 }
 
 .header-navigation {
