@@ -93,7 +93,7 @@
       slidesPerGroup: 1,
       slidesPerView : 3,
       speed: 500,
-      loop: true,
+      // loop: true,
       spaceBetween: 60,
       navigation: {
         nextEl: '.related-post-swiper-btn-next',
