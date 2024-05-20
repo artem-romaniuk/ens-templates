@@ -5,7 +5,7 @@
 @section('content')
     @includeIf('themes.' . current_theme() . '.layouts.includes.header')
     
-    <div class="hero_area">
+    <div class="hero_area sticky-top">
         @if (! empty($data['banner']))
             <section class="slider_section ">
                 <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-interval="{{ $data['hero_section']['delay'] ?? 5000 }}" style="height: 100%;">

@@ -1,7 +1,7 @@
 @extends('themes.' . current_theme() . '.layouts.main')
 
 @section('content')
-    <div class="hero_area">
+    <div class="hero_area sticky-top">
         @includeIf('themes.' . current_theme() . '.layouts.includes.header')
 
         <section>
