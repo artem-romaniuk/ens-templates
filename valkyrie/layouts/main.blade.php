@@ -214,7 +214,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar @if($align != 'burger') navbar-expand-xl @endif navbar-light shadow">
+        <nav class="navbar @if($align != 'burger') navbar-expand-xl @endif navbar-light shadow sticky-top">
             <div class="container d-flex justify-content-between align-items-center">
                 @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                     <a href="{{ route('home') }}" class="navbar-brand text-success logo h1 align-self-center">
