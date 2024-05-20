@@ -36,13 +36,13 @@ $(function() {
   }
   
   function stickyNav() {
-    scrollTop = $(window).scrollTop();
-    if (scrollTop > contentOffset) {
-      sticky.addClass('fixed');
-    }
-    else {
-      sticky.removeClass('fixed');
-    }
+    // scrollTop = $(window).scrollTop();
+    // if (scrollTop > contentOffset) {
+    //   sticky.addClass('fixed');
+    // }
+    // else {
+    //   sticky.removeClass('fixed');
+    // }
   }
   
 });

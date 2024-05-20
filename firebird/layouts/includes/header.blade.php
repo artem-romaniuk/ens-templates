@@ -1,4 +1,4 @@
-<header class="header_section">
+<header class="header_section sticky-top">
     <div class="header_top">
         <div class="container-fluid header_top_container">
             @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))

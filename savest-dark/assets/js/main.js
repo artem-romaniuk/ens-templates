@@ -208,16 +208,16 @@
       var st = $(this).scrollTop();
         if (st > $lastScrollTop) {
             $scrollUp.removeClass('show');
-            $('.sticky-header').removeClass('sticky-show');
+            // $('.sticky-header').removeClass('sticky-show');
         } else {
           if ($window.scrollTop() > 250) {
             $scrollUp.addClass('show');
-            $('.sticky-header').addClass('sticky');
-            $('.sticky-header').addClass('sticky-show');
+            // $('.sticky-header').addClass('sticky');
+            // $('.sticky-header').addClass('sticky-show');
           } else {
             $scrollUp.removeClass('show');
-            $('.sticky-header').removeClass('sticky');
-            $('.sticky-header').removeClass('sticky-show');
+            // $('.sticky-header').removeClass('sticky');
+            // $('.sticky-header').removeClass('sticky-show');
           }
         }
         $lastScrollTop = st;
