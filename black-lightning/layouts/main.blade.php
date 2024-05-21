@@ -190,28 +190,7 @@
 </header>
 
 <div id="content">
-    @php
-        $paddingTop='0%';
-        switch(settings('logo_settings.header.height')){
-            case 50:
-                $paddingTop="0%";
-                break;
-            case 100:
-                 $paddingTop="3.5%";
-                 break;
-            case 150:
-                 $paddingTop="6%";
-                 break;
-            case 200:
-                 $paddingTop="8%";
-                 break;
-            case 250:
-                 $paddingTop="10%";
-                 break;
-        }
-
-    @endphp
-    <div style="padding-top: {{$paddingTop}}">
+    <div style="padding-top: 10%">
         @yield('content')
     </div>
 </div>
