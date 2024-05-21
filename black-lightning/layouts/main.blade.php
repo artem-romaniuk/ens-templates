@@ -190,7 +190,9 @@
 </header>
 
 <div id="content">
-    @yield('content')
+    <div style="padding-top: 10%">
+        @yield('content')
+    </div>
 </div>
 
 <footer class="footer-section section" style="margin-top: 80px">
