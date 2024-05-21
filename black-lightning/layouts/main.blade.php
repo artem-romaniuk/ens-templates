@@ -67,8 +67,10 @@
                                         src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                         alt="{{ settings('company.name') }}"
                                         style="
-                                            @if(! empty(settings('.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                            @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                            @if(! empty(settings('.header.height'))) height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
+                                            @if(settings('logo_settings.header.height') == 'auto') height: 200px !important; max-height: none; @endif
+                                            @if(! empty(settings('logo_settings.header.width'))) width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                            @if( settings('logo_settings.header.width') == 'auto') width: 200px !important; max-width: none; @endif
                                             @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
                                         "
                                     />
@@ -95,8 +97,10 @@
                                         src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                         alt="{{ settings('company.name') }}"
                                         style="
-                                            @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                            @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                            @if(! empty(settings('logo_settings.header.height'))) height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
+                                            @if(settings('logo_settings.header.height') == 'auto') height: 200px !important; max-height: none; @endif
+                                            @if(! empty(settings('logo_settings.header.width'))) width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                            @if( settings('logo_settings.header.width') == 'auto') width: 200px !important; max-width: none; @endif
                                             @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
                                         "
                                     />
@@ -140,8 +144,10 @@
                                     src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                     alt="{{ settings('company.name') }}"
                                     style="
-                                        @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                        @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                        @if(! empty(settings('logo_settings.header.height'))) height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
+                                        @if(settings('logo_settings.header.height') == 'auto') height: 200px !important; max-height: none; @endif
+                                        @if(! empty(settings('logo_settings.header.width'))) width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                        @if(settings('logo_settings.header.width') == 'auto') width: 200px !important; max-width: none; @endif
                                         @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
                                     "
                                 />
@@ -160,8 +166,10 @@
                                     src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                     alt="{{ settings('company.name') }}"
                                     style="
-                                        @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                        @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                        @if(! empty(settings('logo_settings.header.height'))) height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
+                                        @if( settings('logo_settings.header.height') == 'auto') height: 200px !important; max-height: none; @endif
+                                        @if(! empty(settings('logo_settings.header.width'))) width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
+                                        @if(settings('logo_settings.header.width') != 'auto') width: 200px !important; max-width: none; @endif
                                         @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
                                     "
                                 />
@@ -191,11 +199,12 @@
 
 <div id="content">
     <div style="
-        @if( empty(settings('logo_settings.header.height')) || settings('logo_settings.header.height') == 'auto') padding-top: 0; @endif
+        @if( empty(settings('logo_settings.header.height'))) padding-top: 0; @endif
         @if(  settings('logo_settings.header.height') == 50) padding-top: 3%; @endif
         @if(  settings('logo_settings.header.height') == 100) padding-top: 3.5%; @endif
-        @if(  settings('logo_settings.header.height') == 150) padding-top: 6%; @endif
+        @if(  settings('logo_settings.header.height') == 150) padding-top: 6.2%; @endif
         @if(  settings('logo_settings.header.height') == 200) padding-top: 8%; @endif
+        @if(  settings('logo_settings.header.height') == 'auto')  padding-top: 8%; @endif
         @if(  settings('logo_settings.header.height') == 250) padding-top: 10%; @endif
     ">
         @yield('content')

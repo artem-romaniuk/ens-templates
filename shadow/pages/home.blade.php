@@ -13,7 +13,7 @@
                 @if(  settings('logo_settings.header.height') == 100) padding-top: 3.5%; @endif
                 @if(  settings('logo_settings.header.height') == 150) padding-top: 6%; @endif
                 @if(  settings('logo_settings.header.height') == 200) padding-top: 8%; @endif
-                @if(  settings('logo_settings.header.height') == 250) padding-top: 10%; @endif
+                @if(  settings('logo_settings.header.height') == 250) padding-top: 11.5%; @endif
             ">
                 <div id="heroCarousel" class="carousel slide" data-ride="carousel" data-interval="{{ $data['hero_section']['delay'] ?? 5000 }}" style="height: 100%;">
                     <div class="container carousel-inner">
