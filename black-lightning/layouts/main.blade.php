@@ -67,7 +67,7 @@
                                         src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                         alt="{{ settings('company.name') }}"
                                         style="
-                                            @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
+                                            @if(! empty(settings('.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                             @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                             @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
                                         "
@@ -190,7 +190,28 @@
 </header>
 
 <div id="content">
-    <div style="padding-top: 10%">
+    @php
+        $paddingTop='0%';
+        switch(settings('logo_settings.header.height')){
+            case 50:
+                $paddingTop="0%";
+                break;
+            case 100:
+                 $paddingTop="3.5%";
+                 break;
+            case 150:
+                 $paddingTop="6%";
+                 break;
+            case 200:
+                 $paddingTop="8%";
+                 break;
+            case 250:
+                 $paddingTop="10%";
+                 break;
+        }
+
+    @endphp
+    <div style="padding-top: {{$paddingTop}}">
         @yield('content')
     </div>
 </div>
