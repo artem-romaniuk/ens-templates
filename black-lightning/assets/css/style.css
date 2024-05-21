@@ -2052,26 +2052,26 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  padding: 150px 0 146px;
+  padding: 10% 0 146px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .page-header-area {
-    padding: 120px 0 116px;
+    padding: 10% 0 116px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .page-header-area {
-    padding: 110px 0 106px;
+    padding: 10% 0 106px;
   }
 }
 @media only screen and (max-width: 767px) {
   .page-header-area {
-    padding: 90px 0 86px;
+    padding: 10% 0 86px;
   }
 }
 @media only screen and (max-width: 575px) {
   .page-header-area {
-    padding: 80px 0 76px;
+    padding: 10% 0 76px;
   }
 }
 
