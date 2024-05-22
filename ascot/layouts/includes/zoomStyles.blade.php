@@ -4,6 +4,6 @@
 
 <style>
     html {
-        zoom: 110%;
+        zoom: 90%;
     }
 </style>
