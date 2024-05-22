@@ -72,6 +72,7 @@
     </style>
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
+    @include('themes.' . current_theme() . '.layouts.includes.zoomStyles')
     @stack('styles')
 
     @if (! empty(settings('scripts.before_close_head')))
