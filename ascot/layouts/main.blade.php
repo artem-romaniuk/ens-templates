@@ -149,6 +149,7 @@
 
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @include('themes.' . current_theme() . '.layouts.includes.zoomStyles')
+    @include('themes.' . current_theme() . '.layouts.includes.logoStyles')
     @stack('styles')
 
     @if (! empty(settings('scripts.before_close_head')))
@@ -191,12 +192,7 @@
                                 <img
                                     src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                     alt="{{ settings('company.name') }}"
-                                    style="
-                                        height: 75px; width: auto;
-                                        @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                        @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
-                                        @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                    "
+                                    class="logo-main"
                                 >
                             </a>
                         @endif
@@ -257,12 +253,7 @@
                         <img
                             src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                             alt="{{ settings('company.name') }}"
-                            style="
-                                height: 75px; width: auto;
-                                @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
-                                @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                            "
+                            class="logo-main"
                         >
                     </a>
                 </div>
