@@ -5,15 +5,10 @@
                 @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))
                     @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                         <a href="{{ route('home') }}" class="navbar-brand">
-                            <img 
-                                src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
+                            <img
+                                src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                                 alt="{{ settings('company.name') }}"
-                                style="
-                                    height: 75px; width: auto;
-                                    @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                                    @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
-                                    @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                "
+                                class="logo-main"
                             >
                         </a>
                     @endif
@@ -52,15 +47,10 @@
         <div class="container" style="display: flex; justify-content: space-between;">
             @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                 <a href="{{ route('home') }}" class="navbar-brand">
-                    <img 
-                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
+                    <img
+                        src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
                         alt="{{ settings('company.name') }}"
-                        style="
-                            height: 75px; width: auto;
-                            @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
-                            @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
-                            @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                        "
+                        class="logo-main"
                     >
                 </a>
             @endif
