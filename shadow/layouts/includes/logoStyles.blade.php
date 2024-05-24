@@ -6,7 +6,7 @@
 @php $width = $settings['width'] ?? 'auto' @endphp
 
 <style>
-    .logo-main {
+    header .logo-main {
         height: {{ $height }}px !important; max-height: none;
 
         @if($width === 'auto')
