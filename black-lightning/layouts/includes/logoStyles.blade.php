@@ -1,9 +1,11 @@
 @php $settings = settings('logo_settings.header'); @endphp
+@php /** @var array $template_settings */@endphp
 
 @php $height = $settings['height'] @endphp
 @php $height = ($height === null || $height === 'auto') ? 200 : $height; @endphp
 
-@php $width = $settings['width'] ?? 'auto' @endphp
+@php $width = $settings['width'] @endphp
+@php $width = ($width === null || $width === 'auto') ? 200 : $width; @endphp
 
 @php
 $paddingTop = $height;
@@ -36,6 +38,15 @@ switch ($height) {
 }
 @endphp
 
+@php
+$needPadding = '#content';
+$logoUnderMenu = ($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu'
+    && !empty($template_settings['header']['logo_position']['apply']);
+if ($logoUnderMenu) {
+    $needPadding = '.header-top';
+}
+@endphp
+
 <style>
     header .logo-main {
         height: {{ $height }}px !important; max-height: none;
@@ -51,32 +62,32 @@ switch ($height) {
         @endif
     }
 
-    #content {
+    {{ $needPadding }} {
         padding-top: {{ $paddingTop }}px !important;
     }
 
     @media (min-width: 300px) {
-        #content {
+        {{ $needPadding }} {
             padding-top: {{ $paddingTop }}px !important;
         }
     }
     @media (min-width: 575px) {
-        #content {
+        {{ $needPadding }} {
             padding-top: {{ $paddingTop }}px !important;
         }
     }
     @media (min-width: 768px) {
-        #content {
+        {{ $needPadding }} {
             padding-top: {{ $paddingTop768 }}px !important;
         }
     }
     @media (min-width: 992px) {
-        #content {
+        {{ $needPadding }} {
             padding-top: {{ $paddingTop992 }}px !important;
         }
     }
     @media (min-width: 1200px) {
-        #content {
+        {{ $needPadding }} {
             padding-top: {{ $paddingTop1200 }}px !important;
         }
     }
