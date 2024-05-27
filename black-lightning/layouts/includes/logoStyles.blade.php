@@ -7,12 +7,22 @@
 
 @php
 $paddingTop = $height;
+
+$socialLinksEmpty = true;
+foreach (settings('social_links') as $link) {
+    if ($link['active']) {
+        $socialLinksEmpty = false;
+        break;
+    }
+}
+$socialLinksHeight = $socialLinksEmpty ? 32 : 0;
+
 switch ($height) {
     case 50:
         $paddingTop += 68;
         $paddingTop768 = $paddingTop + 8;
         $paddingTop992 = $paddingTop;
-        $paddingTop1200 = $paddingTop992 - 42;
+        $paddingTop1200 = $paddingTop992 - 42 + $socialLinksHeight;
     break;
     case 100:
     case 150:
@@ -21,7 +31,7 @@ switch ($height) {
         $paddingTop += 68;
         $paddingTop768 = $paddingTop;
         $paddingTop992 = $paddingTop + 68 - 100;
-        $paddingTop1200 = $paddingTop992 - 42 - 10;
+        $paddingTop1200 = $paddingTop992 - 52 + $socialLinksHeight;
     break;
 }
 @endphp
