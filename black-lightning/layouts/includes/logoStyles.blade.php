@@ -1,10 +1,10 @@
 @php $settings = settings('logo_settings.header'); @endphp
 @php /** @var array $template_settings */@endphp
 
-@php $height = $settings['height'] @endphp
+@php $height = $settings['height'] ?? null @endphp
 @php $height = ($height === null || $height === 'auto') ? 200 : $height; @endphp
 
-@php $width = $settings['width'] @endphp
+@php $width = $settings['width'] ?? null @endphp
 @php $width = ($width === null || $width === 'auto') ? 200 : $width; @endphp
 
 @php

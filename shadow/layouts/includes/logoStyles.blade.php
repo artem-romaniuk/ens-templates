@@ -1,6 +1,6 @@
 @php $settings = settings('logo_settings.header'); @endphp
 
-@php $height = $settings['height'] @endphp
+@php $height = $settings['height'] ?? null @endphp
 @php $height = ($height === null || $height === 'auto') ? 75 : $height; @endphp
 
 @php $width = $settings['width'] ?? 'auto' @endphp
