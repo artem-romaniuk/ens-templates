@@ -170,7 +170,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar @if($align != 'burger') navbar-expand-xl @endif navbar-light shadow sticky-top">
+        <nav class="navbar @if($align != 'burger') navbar-expand-xl @endif navbar-light shadow sticky-top" style="background-color: white;">
             <div class="container d-flex justify-content-end">
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -215,7 +215,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar @if($align != 'burger') navbar-expand-xl @endif navbar-light shadow sticky-top">
+        <nav class="navbar @if($align != 'burger') navbar-expand-xl @endif navbar-light shadow sticky-top" style="background-color: white;">
             <div class="container d-flex justify-content-between align-items-center">
                 @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                     <a href="{{ route('home') }}" class="navbar-brand text-success logo h1 align-self-center">
