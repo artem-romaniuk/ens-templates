@@ -157,6 +157,12 @@ a:hover {
 }
 @endif
 
+@if (! empty($template_colors['links']['color']))
+a {
+    color: {{ $template_colors['links']['color'] }}!important;
+}
+@endif
+
 @if (! empty($template_colors['menu']['base']))
 .main-nav > li > a {
     color: {{ $template_colors['menu']['base'] }};
