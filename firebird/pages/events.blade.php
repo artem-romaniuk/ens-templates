@@ -3,7 +3,7 @@
 @section('body_class', 'sub_page')
 
 @section('content')
-    <div class="hero_area sticky-top">
+    <div class="hero_area">
         @includeIf('themes.' . current_theme() . '.layouts.includes.header')
     </div>
 
