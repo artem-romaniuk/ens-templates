@@ -158,7 +158,7 @@ a:hover {
 @endif
 
 @if (! empty($template_colors['links']['color']))
-a {
+#content a {
     color: {{ $template_colors['links']['color'] }}!important;
 }
 @endif
