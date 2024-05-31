@@ -158,11 +158,11 @@ a:hover {
 @endif
 
 @if (! empty($template_colors['links']['color']))
-#content a {
-    color: {{ $template_colors['links']['color'] }}!important;
-}
 #content h1, h2, h3, h4, h5 > a {
     color:inherit !important;
+}
+#content a {
+    color: {{ $template_colors['links']['color'] }}!important;
 }
 @endif
 
