@@ -4,7 +4,7 @@
         @if ($image)
             <a
                 href="{{ route('events.single', $event->slug) }}"
-                class="image d-block custom-link"
+                class="image d-block"
                 style="background-image: url('{{ $image }}');background-size:cover;background-position:center;height:250px;width:100%"
             >
             </a>
@@ -24,7 +24,7 @@
                 @endif
             </ul>
             <h4 class="title">
-                <a href="{{ route('events.single', $event->slug) }}">
+                <a class="default-link" href="{{ route('events.single', $event->slug) }}">
                     {{ $event->name }}
                 </a>
             </h4>

@@ -47,7 +47,7 @@
                 	@includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' =>  $content ?? ''])
 
                     <div style="width:100%; margin-top: 45px;" class="text-center">
-                        <a href="{{ url()->previous() }}" class="btn btn-primary">
+                        <a href="{{ url()->previous() }}" class="btn btn-primary default-link">
                             @if (substr(url()->previous(), 0, mb_strlen(route('events.list'))) == route('events.list'))
                                 Return to Events Page
                             @else

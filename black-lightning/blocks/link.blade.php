@@ -1,13 +1,13 @@
 <div class="events-details-content mb-3">
     <h3 class="title">
         @if ($link->type == \App\Enums\LinkType::URL->value)
-            <a href="{{ $link->link }}" target="_blank" rel="nofollow">
+            <a href="{{ $link->link }}" target="_blank" rel="nofollow" class="default-link">
                 {{ $link->title ?? $link->name }}
             </a>
         @endif
 
         @if ($link->type == \App\Enums\LinkType::EMAIL->value)
-            <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
+            <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow" class="default-link">
                 {{ $link->title ?? $link->name }}
             </a>
         @endif
@@ -15,13 +15,13 @@
     <div class="mt-1">{!! $link->description !!}</div>
     <div class="sub-title">
         @if ($link->type == \App\Enums\LinkType::URL->value)
-            <a href="{{ $link->link }}" target="_blank" rel="nofollow" class="custom-link">
+            <a href="{{ $link->link }}" target="_blank" rel="nofollow" class="default-link">
                 {{ str_replace(['http://', 'https://'], '', rtrim($link->link, '/')) }}
             </a>
         @endif
 
         @if ($link->type == \App\Enums\LinkType::EMAIL->value)
-            <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow" class="custom-link">
+            <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow" class="default-link">
                 {{ $link->link }}
             </a>
         @endif

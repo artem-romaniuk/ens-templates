@@ -25,7 +25,7 @@
                         <div class="post-details-info text-center mt-n2">
                             <div class="meta">
                                 @if (isset($author))
-                                    <span class="author">By <a class="custom-link" href="#">{{ $author->full_name }}</a></span>
+                                    <span class="author">By <a href="#">{{ $author->full_name }}</a></span>
                                     <span class="dots"></span>
                                 @endif
                                 <span class="post-date">{{ $created_at }}</span>
@@ -91,11 +91,11 @@
                                                 <div class="content">
                                                     @if (! empty($post->author))
                                                         <div class="post-author">
-                                                            <span>By</span> <a class="custom-link" href="#">{{ $post->author->full_name }}</a>
+                                                            <span>By</span> <a href="#">{{ $post->author->full_name }}</a>
                                                         </div>
                                                     @endif
                                                     <h4 class="title">
-                                                        <a href="{{ route('posts.single', $post->slug) }}">{{ $post->name }}</a>
+                                                        <a class="default-link" href="{{ route('posts.single', $post->slug) }}">{{ $post->name }}</a>
                                                     </h4>
                                                     <ul class="post-meta post4-meta">
                                                         <li class="post-date">{{ $post->created_at?->format('d F, y') ?? '' }}</li>

@@ -74,7 +74,7 @@
                                                     <span class="location"><span>Location:</span> {{ $event->location }}</span>
                                                 @endif
                                                 <h4 class="title">
-                                                    <a href="{{ route('events.single', $event->slug) }}">
+                                                    <a class="default-link" href="{{ route('events.single', $event->slug) }}">
                                                         {{ $event->title ?? $event->name }}
                                                     </a>
                                                 </h4>
@@ -83,7 +83,7 @@
                                                 @endif
 
                                                 <div class="button">
-                                                    <a class="btn btn-primary btn-icon-right btn-lg" href="{{ route('events.single', $event->slug) }}">
+                                                    <a class="btn btn-primary btn-icon-right btn-lg default-link" href="{{ route('events.single', $event->slug) }}">
                                                         <span>Click here for more information</span> <i class="icofont-double-right icon"></i>
                                                     </a>
                                                 </div>
@@ -122,21 +122,21 @@
                                             <ul class="sidebar-category-list">
                                                 @if (settings('events_setup.categories_listed') == 'first')
                                                     <li>
-                                                        <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
+                                                        <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
                                                             All categories
                                                         </a>
                                                     </li>
                                                 @endif
                                                 @foreach($categories as $category)
                                                     <li>
-                                                        <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>
+                                                        <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>
                                                             {{ $category->name }} <span>({{ $category->events_count }})</span>
                                                         </a>
                                                     </li>
                                                 @endforeach
                                                 @if (settings('events_setup.categories_listed') == 'last')
                                                     <li>
-                                                        <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
+                                                        <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
                                                             All categories
                                                         </a>
                                                     </li>
@@ -151,32 +151,32 @@
                                     <div class="sidebar-widget-body">
                                         <ul class="sidebar-category-list">
                                             <li>
-                                                <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 1, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 1) class="active" @endif>
+                                                <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 1, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 1) class="active" @endif>
                                                     Within 1 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 3, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 3) class="active" @endif>
+                                                <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 3, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 3) class="active" @endif>
                                                     Within 3 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 6, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 6) class="active" @endif>
+                                                <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 6, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 6) class="active" @endif>
                                                     Within 6 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 12, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 12) class="active" @endif>
+                                                <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 12, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 12) class="active" @endif>
                                                     Within 12 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 0, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 0) class="active" @endif>
+                                                <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => 0, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == 0) class="active" @endif>
                                                     All Upcoming
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => -1, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == -1) class="active" @endif>
+                                                <a href="{{ route('events.list', array_merge(array_filter(request()->query()), ['timeframe' => -1, 'page' => 1])) }}" @if (request('timeframe', settings('events_setup.default_timeframe', 0)) == -1) class="active" @endif>
                                                     History of past events
                                                 </a>
                                             </li>

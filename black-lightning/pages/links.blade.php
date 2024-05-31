@@ -53,13 +53,13 @@
                                             <div class="details" style="width: 100%">
                                                 <h4 class="title">
                                                     @if ($link->type == \App\Enums\LinkType::URL->value)
-                                                        <a href="{{ $link->link }}" target="_blank" rel="nofollow">
+                                                        <a class="default-link" href="{{ $link->link }}" target="_blank" rel="nofollow">
                                                             {{ $link->title ?? $link->name }}
                                                         </a>
                                                     @endif
 
                                                     @if ($link->type == \App\Enums\LinkType::EMAIL->value)
-                                                        <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
+                                                        <a class="default-link" href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
                                                             {{ $link->title ?? $link->name }}
                                                         </a>
                                                     @endif
@@ -70,13 +70,13 @@
                                                 </div>
                                                 <div class="sub-title">
                                                     @if ($link->type == \App\Enums\LinkType::URL->value)
-                                                        <a href="{{ $link->link }}" target="_blank" rel="nofollow">
+                                                        <a class="default-link" href="{{ $link->link }}" target="_blank" rel="nofollow">
                                                             {{ str_replace(['http://', 'https://'], '', rtrim($link->link, '/')) }}
                                                         </a>
                                                     @endif
 
                                                     @if ($link->type == \App\Enums\LinkType::EMAIL->value)
-                                                        <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
+                                                        <a class="default-link" href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
                                                             {{ $link->link }}
                                                         </a>
                                                     @endif
@@ -115,13 +115,13 @@
                                         <div class="sidebar-widget-body">
                                             <ul class="sidebar-category-list">
                                                 <li>
-                                                    <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
+                                                    <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
                                                         All categories
                                                     </a>
                                                 </li>
                                                 @foreach($categories as $category)
                                                     <li>
-                                                        <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>
+                                                        <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>
                                                             {{ $category->name }} <span>({{ $category->links_count }})</span>
                                                         </a>
                                                     </li>
@@ -136,27 +136,27 @@
                                     <div class="sidebar-widget-body">
                                         <ul class="sidebar-category-list">
                                             <li>
-                                                <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 0, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 0) class="active" @endif>
+                                                <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 0, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 0) class="active" @endif>
                                                     All
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 1, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 1) class="active" @endif>
+                                                <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 1, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 1) class="active" @endif>
                                                     1 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 3, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 3) class="active" @endif>
+                                                <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 3, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 3) class="active" @endif>
                                                     3 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 6, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 6) class="active" @endif>
+                                                <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 6, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 6) class="active" @endif>
                                                     6 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="custom-link" href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 12, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 12) class="active" @endif>
+                                                <a href="{{ route('links.list', array_merge(array_filter(request()->query()), ['timeframe' => 12, 'page' => 1])) }}" @if (request('timeframe', settings('links_setup.default_timeframe', 0)) == 12) class="active" @endif>
                                                     12 month
                                                 </a>
                                             </li>

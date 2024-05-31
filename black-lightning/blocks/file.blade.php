@@ -7,7 +7,7 @@
                 @endif
 
                 <h4 class="title">
-                    <a href="{{ ! empty($file->getFirstMediaUrl('downloads')) ? $file->getFirstMediaUrl('downloads') : ($file->urls[0] ?? '#') }}" download="" target="_blank">
+                    <a class="default-link" href="{{ ! empty($file->getFirstMediaUrl('downloads')) ? $file->getFirstMediaUrl('downloads') : ($file->urls[0] ?? '#') }}" download="" target="_blank">
                         {{ $file->title ?? $file->name }}
                     </a>
                 </h4>

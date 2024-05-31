@@ -6,9 +6,9 @@
 
                 <li>
                 @auth()
-                    <a href="{{ route('admin.pages.index') }}" rel="nofollow">Admin</a>
+                    <a class="default-link" href="{{ route('admin.pages.index') }}" rel="nofollow">Admin</a>
                 @else
-                    <a href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
+                    <a class="default-link" href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
                 @endauth
                 </li>
             </ul>
@@ -21,24 +21,24 @@
                 <li>
                     @auth()
                         @if (has_any_access(['*']))
-                            <a href="{{ main_admin_url() }}" rel="nofollow">Admin</a>
+                            <a class="default-link" href="{{ main_admin_url() }}" rel="nofollow">Admin</a>
                         @endif
                     @else
-                        <a href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
+                        <a class="default-link" href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
                     @endauth
                 </li>
 
                 @auth()
                     @if (! is_admin())
                         <li>
-                            <a href="{{ main_profile_url() }}" rel="nofollow">Profile</a>
+                            <a class="default-link" href="{{ main_profile_url() }}" rel="nofollow">Profile</a>
                         </li>
                     @endif
                 @endauth
 
                 @auth()
                     <li>
-                        <a href="{{ route('logout') }}" rel="nofollow">Logout</a>
+                        <a class="default-link" href="{{ route('logout') }}" rel="nofollow">Logout</a>
                     </li>
                 @endauth
             </ul>

@@ -11,7 +11,7 @@
                         <a
                             href="{{ $children['properties']['url'] ?? '#' }}"
                             @if (! empty($children['properties']['target']) && $children['properties']['target'] == '_blank') target="_blank" @endif
-                        >{{ $children['name'] }}</a>
+                            class="default-link" >{{ $children['name'] }}</a>
                     </li>
                 @endforeach
             </ul>

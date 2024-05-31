@@ -17,9 +17,9 @@
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
                     @if ($publication->getFirstMediaUrl('publications'))
-                        <a style="text-decoration: underline; color: #000;font-size: 0.7em" href="{{ $publication->getFirstMediaUrl('publications') }}" target="_blank" class="custom-link">View</a>
+                        <a style="text-decoration: underline; color: #000;font-size: 0.7em" href="{{ $publication->getFirstMediaUrl('publications') }}" target="_blank">View</a>
                     @elseif(isset($publication->urls[0]))
-                        <a style="text-decoration: underline; color: #000; font-size: 0.7em" href="{{ $publication->urls[0] }}" target="_blank" class="custom-link">View</a>
+                        <a style="text-decoration: underline; color: #000; font-size: 0.7em" href="{{ $publication->urls[0] }}" target="_blank">View</a>
                     @endif
                 </div>
 

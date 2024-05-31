@@ -32,7 +32,7 @@
 {{--                                            </li>--}}
                                         </ul>
                                         <h4 class="title">
-                                            <a href="{{ route('posts.single', $post->slug) }}">{{ $post->name }}</a>
+                                            <a class="default-link" href="{{ route('posts.single', $post->slug) }}">{{ $post->name }}</a>
                                         </h4>
                                         @if (! empty($post->description))
                                             <p>{{ $post->description }}</p>

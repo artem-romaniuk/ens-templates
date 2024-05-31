@@ -158,7 +158,7 @@ a:hover {
 @endif
 
 @if (! empty($template_colors['links']['color']))
-.custom-link {
+a:not(.default-link ) {
     color: {{ $template_colors['links']['color'] }}!important;
 }
 @endif

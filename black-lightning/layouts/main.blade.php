@@ -103,7 +103,7 @@
                             @foreach(settings('social_links', []) as $item)
                                 @continue((empty($item['icon']['dark']) && empty($item['icon']['light'])) || isset($item['active']) && ! $item['active'])
                                 <li class="mx-1">
-                                    <a href="{{ $item['link'] ?? '#' }}" title="{{ $item['name'] ?? '' }}" target="_blank">
+                                    <a class="default-link" href="{{ $item['link'] ?? '#' }}" title="{{ $item['name'] ?? '' }}" target="_blank">
                                         <img src="{{ $item['icon']['dark'] ?? $item['icon']['light'] }}" width="28" alt="{{ $item['name'] ?? '' }}" />
                                     </a>
                                 </li>
@@ -182,7 +182,7 @@
             <div class="col-md-8 col-lg-4 mb-8 mb-md-0">
                 <div class="footer-widget text-center text-md-start">
                     @if (! empty(settings('company.logo.' . settings('logo_positions.footer'))))
-                        <a href="{{ route('home') }}" class="footer-widget-logo me-auto me-md-0 ms-auto ms-md-0">
+                        <a href="{{ route('home') }}" class="footer-widget-logo me-auto me-md-0 ms-auto ms-md-0 default-link">
                             <img
                                 class="logo-main"
                                 src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}"
@@ -216,7 +216,7 @@
                                 @foreach(settings('social_links', []) as $item)
                                     @continue((empty($item['icon']['dark']) && empty($item['icon']['light'])) || (isset($item['active']) && ! $item['active']))
                                     <li class="mx-1">
-                                        <a href="{{ $item['link'] ?? '#' }}" title="{{ $item['name'] ?? '' }}" target="_blank">
+                                        <a class="default-link" href="{{ $item['link'] ?? '#' }}" title="{{ $item['name'] ?? '' }}" target="_blank">
                                             <img src="{{ $item['icon']['light'] ?? $item['icon']['dark'] }}" width="28" alt="{{ $item['name'] ?? '' }}" />
                                         </a>
                                     </li>
@@ -235,7 +235,7 @@
         <div class="row flex-row-reverse flex-md-row">
             <div class="col-md-6 text-center text-md-start">
                 <p class="footer-copyright">Copyright {{ now()->year }} by {{ settings('company.name') }}. All rights reserved.</p>
-                <p class="footer-copyright">Powered by <a class="footer-link" href="https://easynetsites.com/">EasyNetSites</a> Webware</p>
+                <p class="footer-copyright">Powered by <a class="footer-link default-link" href="https://easynetsites.com/">EasyNetSites</a> Webware</p>
             </div>
 {{--                    <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">--}}
 {{--                        <p class="footer-payment-info">Payment System: <a href="my-account.html"><img src="assets/images/photos/payment-card.png" width="147" height="31" alt="Image"></a></p>--}}
