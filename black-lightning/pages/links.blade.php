@@ -70,13 +70,13 @@
                                                 </div>
                                                 <div class="sub-title">
                                                     @if ($link->type == \App\Enums\LinkType::URL->value)
-                                                        <a class="default-link" href="{{ $link->link }}" target="_blank" rel="nofollow">
+                                                        <a href="{{ $link->link }}" target="_blank" rel="nofollow">
                                                             {{ str_replace(['http://', 'https://'], '', rtrim($link->link, '/')) }}
                                                         </a>
                                                     @endif
 
                                                     @if ($link->type == \App\Enums\LinkType::EMAIL->value)
-                                                        <a class="default-link" href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
+                                                        <a href="mailto:{{ $link->link }}" target="_blank" rel="nofollow">
                                                             {{ $link->link }}
                                                         </a>
                                                     @endif
