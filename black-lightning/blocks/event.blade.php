@@ -4,7 +4,7 @@
         @if ($image)
             <a
                 href="{{ route('events.single', $event->slug) }}"
-                class="image d-block"
+                class="image d-block custom-link"
                 style="background-image: url('{{ $image }}');background-size:cover;background-position:center;height:250px;width:100%"
             >
             </a>

@@ -92,13 +92,13 @@
                                         <div class="sidebar-widget-body">
                                             <ul class="sidebar-category-list">
                                                 <li>
-                                                    <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
+                                                    <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['category' => '', 'page' => 1])) }}" @if (!request('category')) class="active" @endif>
                                                         All categories
                                                     </a>
                                                 </li>
                                                 @foreach($categories as $category)
                                                     <li>
-                                                        <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>
+                                                        <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>
                                                             {{ $category->name }} <span>({{ $category->facts_count }})</span>
                                                         </a>
                                                     </li>
@@ -113,27 +113,27 @@
                                     <div class="sidebar-widget-body">
                                         <ul class="sidebar-category-list">
                                             <li>
-                                                <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 0, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 0) class="active" @endif>
+                                                <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 0, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 0) class="active" @endif>
                                                     All
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 1, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 1) class="active" @endif>
+                                                <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 1, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 1) class="active" @endif>
                                                     1 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 3, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 3) class="active" @endif>
+                                                <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 3, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 3) class="active" @endif>
                                                     3 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 6, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 6) class="active" @endif>
+                                                <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 6, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 6) class="active" @endif>
                                                     6 month
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 12, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 12) class="active" @endif>
+                                                <a class="custom-link" href="{{ route('facts.list', array_merge(array_filter(request()->query()), ['timeframe' => 12, 'page' => 1])) }}" @if (request('timeframe', settings('facts_setup.default_timeframe', 0)) == 12) class="active" @endif>
                                                     12 month
                                                 </a>
                                             </li>

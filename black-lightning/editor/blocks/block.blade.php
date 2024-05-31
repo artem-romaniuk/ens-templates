@@ -106,7 +106,7 @@
                                                     @foreach($position->users as $user)
                                                         <div>
                                                             @if (! empty($position->email))
-                                                                <a href="mailto:{{ $position->email }}">{{ $user->organization_name ?? $user->name }}</a>
+                                                                <a href="mailto:{{ $position->email }}" class="custom-link">{{ $user->organization_name ?? $user->name }}</a>
                                                             @else
                                                                 {{ $user->organization_name ?? $user->name }}
                                                             @endif

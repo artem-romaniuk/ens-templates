@@ -4,7 +4,7 @@
         @if ($banner)
             <a
                 href="{{ route('posts.single', $post->slug) }}"
-                class="image d-block"
+                class="image d-block custom-link"
                 style="background-image: url('{{ $banner }}');background-size:cover;background-position:center;height:250px;width:100%"
             >
             </a>
