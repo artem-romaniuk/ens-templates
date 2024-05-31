@@ -180,7 +180,7 @@
     @endif
 
 @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))
-    <header id="header" class="header d-flex align-items-center fixed-top flex-column sticked" style="padding: 0;">
+    <header id="header" class="header d-flex align-items-center fixed-top flex-column" style="padding: 0;">
         <div style="width: 100%;">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
@@ -239,7 +239,7 @@
         </div>
     </header>
 @else
-    <header id="header" class="header d-flex align-items-center fixed-top sticked">
+    <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                 <a href="{{ route('home') }}" class="logo d-flex align-items-center">
