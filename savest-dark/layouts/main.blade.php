@@ -170,13 +170,19 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-lg-5">
+                    <div class="col-md-3 col-lg-3">
                         <div class="footer-widget">
-                            <x-menu-component layout="footer" />
+                            <x-menu-component layout="footer_column_1" />
                         </div>
                     </div>
 
-                    <div class="col-lg-3 ps-3 ps-xl-10 mt-8 mt-lg-0">
+                    <div class="col-md-3 col-lg-3">
+                        <div class="footer-widget">
+                            <x-menu-component layout="footer_column_2" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 ps-3 ps-xl-10 mt-8 mt-lg-0">
                         @if (! empty(settings('social_links')))
                             <div class="footer-widget">
                                 <h4 class="footer-widget-title mb-3 mb-xl-2 pb-1">Social links</h4>

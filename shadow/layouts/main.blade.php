@@ -104,7 +104,13 @@
                 @endif
             </div>
 
-            <x-menu-component layout="footer" />
+            <div class="col-lg-3 py-3">
+                <x-menu-component layout="footer_column_1" />
+            </div>
+
+            <div class="col-lg-3 py-3">
+                <x-menu-component layout="footer_column_2" />
+            </div>
 
             <div class="col-lg-3 py-3">
                 <p>{{ implode(', ', array_filter([settings('company.address_1'), settings('company.address_2'), settings('company.city'), settings('company.state'), settings('company.country')])) }}</p>

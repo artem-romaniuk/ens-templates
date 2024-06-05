@@ -179,7 +179,7 @@
 <div class="footer-main section-padding bg-img" style="padding: 30px 0 10px 0;">
     <div class="container mb-n3">
         <div class="row align-items-start">
-            <div class="col-md-8 col-lg-4 mb-8 mb-md-0">
+            <div class="col-md-8 col-lg-3 mb-8">
                 <div class="footer-widget text-center text-md-start">
                     @if (! empty(settings('company.logo.' . settings('logo_positions.footer'))))
                         <a href="{{ route('home') }}" class="footer-widget-logo me-auto me-md-0 ms-auto ms-md-0 default-link">
@@ -200,19 +200,23 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-5">
+            <div class="col-lg-3 mb-4">
                 <div class="footer-widget">
-                    <x-menu-component layout="footer" />
+                    <x-menu-component layout="footer_column_1" />
                 </div>
             </div>
 
-            <div class="col-lg-3 ps-3 ps-xl-10 mt-8 mt-lg-0">
+            <div class="col-lg-3 mb-4">
+                <div class="footer-widget">
+                    <x-menu-component layout="footer_column_2" />
+                </div>
+            </div>
+
+            <div class="col-md-3 col-lg-3 ps-3 mt-0 mb-8 mt-lg-0">
                 @if (! empty(settings('social_links')))
                     <div class="footer-widget">
-                        <h4 class="footer-widget-title mb-3 mb-xl-2 pb-1">Social links</h4>
-                        <h4 class="collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#dividerId-3" aria-expanded="false">Social links</h4>
-                        <div id="dividerId-3" class="widget-collapse-body collapse px-3  px-xl-0">
-                            <ul class="d-flex">
+                        <div id="dividerId-3" class="px-xl-0">
+                            <ul class="d-flex justify-content-center">
                                 @foreach(settings('social_links', []) as $item)
                                     @continue((empty($item['icon']['dark']) && empty($item['icon']['light'])) || (isset($item['active']) && ! $item['active']))
                                     <li class="mx-1">

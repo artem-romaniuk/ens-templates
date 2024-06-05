@@ -281,7 +281,13 @@
                 </div>
             </div>
 
-            <x-menu-component layout="footer" />
+            <div class="col-lg-4">
+                <x-menu-component layout="footer_column_1" />
+            </div>
+
+            <div class="col-lg-4">
+                <x-menu-component layout="footer_column_2" />
+            </div>
 
             <div class="col-lg-12">
                 <div class="under-footer">
