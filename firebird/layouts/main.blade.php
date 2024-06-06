@@ -136,7 +136,13 @@
                     <p>{{ settings('company.description') }}</p>
                 </div>
 
-                <x-menu-component layout="footer" />
+                <div class="col-sm-3 col-md-8 col-lg-3 mx-auto">
+                    <x-menu-component layout="footer_column_1" />
+                </div>
+
+                <div class="col-sm-3 col-md-8 col-lg-3 mx-auto">
+                    <x-menu-component layout="footer_column_2" />
+                </div>
             </div>
         </div>
         <div class="info_bottom">

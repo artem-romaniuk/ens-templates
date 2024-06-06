@@ -56,7 +56,7 @@
       $(".header-navigation li a[href='"+curpage+"']").parents("li").addClass("active");
     }
 
-  
+
 
   // Testimonial Slider Js
     var TestimonialSlider = new Swiper('.testimonial-slider-container', {
@@ -207,14 +207,14 @@
   }
   scrollToTop();
   varWindow.on('scroll', function(){
-    // if($('.sticky-header').length){
-    //   var windowpos = $(this).scrollTop();
-    //   if (windowpos >= 250) {
-    //     $('.sticky-header').addClass('sticky');
-    //   } else {
-    //     $('.sticky-header').removeClass('sticky');
-    //   }
-    // }
+    if($('.sticky-header').length){
+      var windowpos = $(this).scrollTop();
+      if (windowpos >= 250) {
+        $('.sticky-header').addClass('sticky');
+      } else {
+        $('.sticky-header').removeClass('sticky');
+      }
+    }
   });
 
 })(window.jQuery);

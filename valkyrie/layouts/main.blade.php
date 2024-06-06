@@ -296,7 +296,13 @@
                 </ul>
             </div>
 
-            <x-menu-component layout="footer" />
+            <div class="col-md-4 pt-5">
+                <x-menu-component layout="footer_column_1" />
+            </div>
+
+            <div class="col-md-4 pt-5">
+                <x-menu-component layout="footer_column_2" />
+            </div>
         </div>
 
         <div class="row text-light mb-4">

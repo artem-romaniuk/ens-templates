@@ -181,7 +181,17 @@
                     @endif
                 </div>
 
-                <x-menu-component layout="footer" />
+                <div class="col-lg-3 col-md-6 footer-links">
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <x-menu-component layout="footer_column_1" />
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <x-menu-component layout="footer_column_2" />
+                </div>
             </div>
         </div>
     </div>
