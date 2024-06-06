@@ -116,7 +116,7 @@
     </div>
 </div>
 
-<div class="header-bottom sticky-header sticky sticky-show">
+<div class="header-bottom sticky-header">
     <div class="container-fluid header-container-fluid py-2">
         <div class="row justify-content-between align-items-center">
             @if (
