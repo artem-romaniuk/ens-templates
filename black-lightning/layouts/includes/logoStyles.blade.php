@@ -1,22 +1,21 @@
 @php $settings = settings('logo_settings.header'); @endphp
 @php /** @var array $template_settings */@endphp
 
-@php $height = $settings['height'] ?? null @endphp
-@php $height = ($height === null || $height === 'auto') ? 200 : $height; @endphp
-
-@php $width = $settings['width'] ?? null @endphp
-@php $width = ($width === null || $width === 'auto') ? 200 : $width; @endphp
+@php $height = $settings['height'] ?? 'auto' @endphp
+@php $width = $settings['width'] ?? 'auto' @endphp
 
 @php
-$paddingTop = $height;
+$paddingTop = 0;
 
 $socialLinksEmpty = true;
+
 foreach (settings('social_links') as $link) {
     if ($link['active']) {
         $socialLinksEmpty = false;
         break;
     }
 }
+
 $socialLinksHeight = $socialLinksEmpty ? 32 : 0;
 
 switch ($height) {
@@ -35,6 +34,11 @@ switch ($height) {
         $paddingTop992 = $paddingTop + 68 - 100;
         $paddingTop1200 = $paddingTop992 - 52 + $socialLinksHeight;
     break;
+    case 'auto':
+        $paddingTop = 68;
+        $paddingTop768 = $paddingTop;
+        $paddingTop992 = $paddingTop + 68 - 100;
+        $paddingTop1200 = $paddingTop992 - 52 + $socialLinksHeight;
 }
 @endphp
 
