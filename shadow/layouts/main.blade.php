@@ -58,7 +58,7 @@
     @include('themes.' . current_theme() . '.layouts.includes.styles')
     @include('themes.' . current_theme() . '.layouts.includes.zoomStyles')
     @include('themes.' . current_theme() . '.layouts.includes.logoStyles')
-    @include('themes.' . current_theme() . '.layouts.includes.navbarStyles')
+{{--    @include('themes.' . current_theme() . '.layouts.includes.navbarStyles')--}}
     @stack('styles')
 
     @if (! empty(settings('scripts.before_close_head')))
