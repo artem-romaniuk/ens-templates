@@ -10,7 +10,7 @@
     <section class="py-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 entries">
+                <div class="@if($similar->isNotEmpty()) col-lg-8 @else col-lg-12 @endif entries">
                     <section class="service_section">
                         <div class="service_container mx-0 pt-3">
                             <article class="entry">
@@ -34,6 +34,12 @@
                                     </ul>
                                 </div>
 
+                                @if (! empty($description))
+                                    <div class="entry-content page-content" style="margin: 16px 0 24px 0;">
+                                        {!! $description !!}
+                                    </div>
+                                @endif
+
                                 <div class="entry-content page-content">
                                     @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' =>  $content ?? ''])
                                 </div>
@@ -42,8 +48,8 @@
                     </section>
                 </div>
 
-                <div class="col-lg-4 entries">
-                    @if($similar->isNotEmpty())
+                @if($similar->isNotEmpty())
+                    <div class="col-lg-4 entries">
                         <h4 class="sidebar-title">Recent Posts</h4>
                         <div class="sidebar-item recent-posts">
                             @foreach($similar as $post)
@@ -67,8 +73,8 @@
                                 </section>
                             @endforeach
                         </div>
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     </section>

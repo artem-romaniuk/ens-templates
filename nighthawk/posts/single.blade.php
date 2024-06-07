@@ -18,7 +18,7 @@
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
                 <div class="row g-5">
-                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="@if($similar->isNotEmpty()) col-lg-8 @else col-lg-12 @endif" data-aos="fade-up" data-aos-delay="200">
                         <article class="blog-details">
                             @if (! empty($data['banner']))
                                 @php($banner = $data['banner'][0])
@@ -38,15 +38,21 @@
                                 </ul>
                             </div>
 
+                            @if (! empty($description))
+                                <div class="content page-content" style="margin: 24px 0 24px 0;">
+                                    {!! $description !!}
+                                </div>
+                            @endif
+
                             <div class="content page-content">
                                 @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' =>  $content ?? ''])
                             </div>
                         </article>
                     </div>
 
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="sidebar ps-lg-4">
-                            @if($similar->isNotEmpty())
+                    @if($similar->isNotEmpty())
+                        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="sidebar ps-lg-4">
                                 <div class="sidebar-item recent-posts">
                                 <h3 class="sidebar-title">Recent Posts</h3>
                                     <div class="mt-3">
@@ -64,9 +70,9 @@
                                         @endforeach
                                     </div>
                                 </div>
-                            @endif
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </section>

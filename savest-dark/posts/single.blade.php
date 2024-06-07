@@ -33,21 +33,16 @@
                                 <span class="post-time">{{ $created_at_humans }}</span>
                             </div>
                             <h4 class="title">{{ $name }}</h4>
-{{--                            <div class="widget-tags">--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="blog.html">Charity</a></li>--}}
-{{--                                    <li><a class="active" href="blog.html">Human</a></li>--}}
-{{--                                    <li><a href="blog.html">Animal’s</a></li>--}}
-{{--                                    <li><a href="blog.html">Forest</a></li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
                         </div>
-{{--                        <div class="post-details-thumb">--}}
-{{--                            <img class="w-100" src="assets/images/blog/details-1.jpg" alt="Image" width="1170" height="550">--}}
-{{--                        </div>--}}
                     </div>
 
                     <div class="col-lg-10">
+                        @if (! empty($description))
+                            <div class="post-details-content mt-0">
+                                {!! $description !!}
+                            </div>
+                        @endif
+
                         <div class="post-details-content mt-0">
                             @foreach($data['content']['blocks'] ?? [] as $block)
                                 @includeif('themes.' . current_theme() . '.editor.blocks.' . $block['type'], ['data' => $block['data'], 'parameters' => $block['tunes']['parameters'] ?? null])

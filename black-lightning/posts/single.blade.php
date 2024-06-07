@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <div class="post-details-info text-center mt-n2">
+                        <div class="post-details-info text-center mt-n2 mb-6">
                             <div class="meta">
                                 @if (isset($author))
                                     <span class="author">By <a href="#">{{ $author->full_name }}</a></span>
@@ -33,19 +33,16 @@
                                 <span class="post-time">{{ $created_at_humans }}</span>
                             </div>
                             <h4 class="title">{{ $name }}</h4>
-{{--                            <div class="widget-tags">--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="blog.html">Charity</a></li>--}}
-{{--                                    <li><a class="active" href="blog.html">Human</a></li>--}}
-{{--                                    <li><a href="blog.html">Animal’s</a></li>--}}
-{{--                                    <li><a href="blog.html">Forest</a></li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
                         </div>
-{{--                        <div class="post-details-thumb">--}}
-{{--                            <img class="w-100" src="assets/images/blog/details-1.jpg" alt="Image" width="1170" height="550">--}}
-{{--                        </div>--}}
                     </div>
+
+                    @if (! empty($description))
+                        <div class="col-lg-10">
+                            <div class="post-details-content mt-0 pb-6">
+                                {!! $description !!}
+                            </div>
+                        </div>
+                    @endif
 
                     <div class="col-lg-10">
                         <div class="post-details-content mt-0 page-content">

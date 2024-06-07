@@ -18,7 +18,7 @@
             </nav>
 
             <div class="row">
-                <div class="col-lg-8">
+                <div class="@if($similar->isNotEmpty()) col-lg-8 @else col-lg-12 @endif">
                     <div class="blog-single-wrap pt-0">
                         <div class="header">
                             @if (! empty($data['banner']))
@@ -36,14 +36,6 @@
                                 </div>
 
                                 <div class="post-sharer">
-{{--                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('posts.single', $slug)) }}&amp;{{ urlencode('p[images][0]') }}={{ ! empty($data['banner'][0]['image']['url']) ? urlencode($data['banner'][0]['image']['url']) : '' }}" title="{{ urlencode($title ?? $name) }}" onclick="window.open(this.href, this.title, 'toolbar=0, status=0, width=548, height=325'); return false" class="btn social-facebook" rel="nofollow" target="_parent">--}}
-{{--                                        <span class="mai-logo-facebook-f"></span>--}}
-{{--                                    </a>--}}
-{{--                                    <a href="#" class="btn social-twitter">--}}
-{{--                                        <span class="mai-logo-twitter"></span>--}}
-{{--                                    </a>--}}
-{{--                                    <a href="#" class="btn social-linkedin"><span class="mai-logo-linkedin"></span></a>--}}
-{{--                                    <a href="#" class="btn"><span class="mai-mail"></span></a>--}}
                                 </div>
                             </div>
                         </div>
@@ -57,17 +49,23 @@
                                 </span>
                                 <a>{{ $created_at }}</a>
                             </div>
-
                         </div>
+
+                        @if (! empty($description))
+                            <div class="post-content page-content" style="margin-bottom: 24px;">
+                                {!! $description !!}
+                            </div>
+                        @endif
+
                         <div class="post-content page-content">
                             @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' =>  $content ?? ''])
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="widget">
-                        @if($similar->isNotEmpty())
+                @if($similar->isNotEmpty())
+                    <div class="col-lg-4">
+                        <div class="widget">
                             <div class="widget-box">
                                 <h4 class="widget-title">Recent Post</h4>
                                 <div class="divider"></div>
@@ -93,9 +91,9 @@
                                     </div>
                                 @endforeach
                             </div>
-                        @endif
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

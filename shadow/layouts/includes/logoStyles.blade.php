@@ -4,7 +4,7 @@
 @php $height = $settings['height'] ?? 'auto' @endphp
 @php $width = $settings['width'] ?? 'auto' @endphp
 <style>
-    header .logo-main {
+    .logo-main {
         @if($height === 'auto')
             height: auto !important;;
         @else
@@ -23,6 +23,6 @@
     }
 
     .navbar.sticky.fixed {
-        animation: none!important;
+        animation: initial!important;
     }
 </style>

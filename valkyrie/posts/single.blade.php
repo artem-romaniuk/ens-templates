@@ -24,6 +24,12 @@
 
                         <h1 class="post-title my-4">{!! $title ?? $name !!}</h1>
 
+                        @if (! empty($description))
+                            <div class="post-content page-content" style="margin-bottom: 24px;">
+                                {!! $description !!}
+                            </div>
+                        @endif
+
                         <div class="post-content page-content">
                             @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' =>  $content ?? ''])
                         </div>
