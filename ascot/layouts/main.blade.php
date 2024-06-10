@@ -108,11 +108,11 @@
         }
         .event-short-description, .post-short-description {
             display: -webkit-box;
-            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 80px;
+            line-height: 1.5;
         }
         .entry-title {
             overflow: hidden;

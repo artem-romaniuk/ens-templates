@@ -1,5 +1,5 @@
-<div class="col-12 col-md-4 mb-4">
-    <div class="card h-100">
+<div class="col-12 {{ $class ?? 'col-md-4' }} mb-4">
+    <div class="card h-100 card-post">
         @php($banner = $post->data['banner'][0]['image']['url'] ?? null)
         @if ($banner)
             <a href="{{ route('posts.single', $post->slug) }}" class="post-thumb" style="background-image: url('{{ $banner }}'); background-position: center center; background-size: cover;">

@@ -10,7 +10,7 @@
             </a>
         @endif
 
-        <div class="content">
+        <div class="content" style="height: 250px;">
             <ul class="post-meta post3-meta">
                 <li class="post-date"><span>Date:</span> {{ $post->created_at?->format('F d, Y') ?? '' }}</li>
             </ul>

@@ -15,62 +15,62 @@
     @if (! empty($template_settings['body']['font_family']['url']))
         @import url("{{ $template_settings['body']['font_family']['url'] }}");
     @endif
-    
+
     @if (! empty($template_colors['events']['background']))
 .event-block {
     background: {{ $template_colors['events']['background'] }}!important;
 }
 @endif
-    
+
     body {
     @if (! empty($template_settings['body']['color']))
         color: {{ $template_settings['body']['color']  }}!important;
     @endif
-    
+
     @if (! empty($template_settings['body']['line_height']['value']))
         line-height: {{ $template_settings['body']['line_height']['value'] . ($template_settings['body']['line_height']['unit'] ?? 'px') }}px!important;
     @endif
-    
+
     @if (! empty($template_settings['body']['font_size']['value']))
         font-size: {{ $template_settings['body']['font_size']['value'] . ($template_settings['body']['font_size']['unit'] ?? 'px') }}!important;
     @endif
-    
+
     @if (! empty($template_settings['body']['font_weight']))
         font-weight: {{ $template_settings['body']['font_weight'] }}!important;
     @endif
-    
+
     @if (! empty($template_settings['body']['font_family']['value']))
         font-family: "{{ $template_settings['body']['font_family']['value'] }}", sans-serif!important;
     @endif
     }
-    
+
     .footer-main {
     @if (! empty($template_settings['footer']['text_color']['value']) && ! empty($template_settings['footer']['text_color']['apply']))
         color: {{ $template_settings['footer']['text_color']['value'] }}!important;
     @endif
-    
+
     @if (! empty($template_settings['footer']['background_color']['value']) && ! empty($template_settings['footer']['background_color']['apply']))
         background-color: {{ $template_settings['footer']['background_color']['value'] }}!important;
     @endif
-    
+
     @if (! empty($template_settings['footer']['background_image']['value']) && ! empty($template_settings['footer']['background_image']['apply']))
         background-image: url("{{ $template_settings['footer']['background_image']['value'] }}")!important;
         background-size: cover!important;
     @endif
     }
-    
+
     @if (! empty($template_settings['footer']['text_color']['value']) && ! empty($template_settings['footer']['text_color']['apply']))
     .footer-main, .footer-main div, .footer-main p {
         color: {{ $template_settings['footer']['text_color']['value'] }} !important;
     }
     @endif
-    
+
     @if (! empty($template_settings['footer']['label_color']['value']) && ! empty($template_settings['footer']['label_color']['apply']))
     .footer-main h3, .footer-main h4 {
         color: {{ $template_settings['footer']['label_color']['value'] }} !important;
     }
     @endif
-    
+
     @if (! empty($template_settings['footer']['link_color']['state']) && ! empty($template_settings['footer']['link_color']['apply']))
     .footer-widget-nav a {
         color: {{ $template_settings['footer']['link_color']['state'] }} !important;
@@ -81,12 +81,12 @@
     }
     @endif
     @endif
-    
+
     .hero-slide-sub-title {
         max-width: 545px!important;
     }
     </style>
-    
+
     <!-- Color styles -->
     <style>
     @if (! empty($template_colors['button']['background']))
@@ -99,7 +99,7 @@
         background: #fff!important;
 }
     @endif
-    
+
     @if (! empty($template_colors['button']['text']))
     .button, button, .main-white-button a, .btn-success {
         color: {{ $template_colors['button']['text'] }}!important;
@@ -108,7 +108,7 @@
         color: {{ $template_colors['button']['text'] }}!important;
 }
     @endif
-    
+
     @if (! empty($template_colors['button']['hover_background']))
     .button:hover, button:hover, .main-white-button a:hover, .btn-success:hover,
     .pagination .page-link:hover, .pagination .page-link.active {
@@ -120,7 +120,7 @@
         background: #fff!important;
 }
     @endif
-    
+
     @if (! empty($template_colors['button']['hover_text']))
     .button:hover, button:hover, .main-white-button a:hover, .btn-success:hover,
     .pagination .page-link:hover, .pagination .page-link.active {
@@ -130,7 +130,7 @@
        color: {{ $template_colors['button']['hover_text'] }}!important;
 }
     @endif
-    
+
     @if (! empty($template_colors['page_background']['base']))
     body {
         background: {{ $template_colors['page_background']['base'] }}!important;
@@ -162,7 +162,7 @@
         color: {{ $template_colors['titles']['base'] }}!important;
     }
     @endif
-    
+
     @if (! empty($template_colors['menu']['base']))
     .navbar-nav li a {
         color: {{ $template_colors['menu']['base'] }}!important;
@@ -181,7 +181,7 @@
         background: {{ $template_colors['menu']['selected'] }}!important;
     }
     @endif
-    
+
     @if (! empty($template_colors['block_background']['base']))
     .row-block {
         background: {{ $template_colors['block_background']['base'] }}!important;
@@ -202,19 +202,19 @@
         background-color: {{ $template_colors['additional_elements']['base'] }} !important;
     }
     @endif
-    
+
 .wp-block-column {
 padding: 0 10px;
 }
-.page-content ul, ol {
+.page-content ul:not(.card-post ul), ol:not(.card-post ol) {
 padding: inherit;
 margin-left: 1em;
 }
-.page-content ul li {
+.page-content ul li:not(.card-post ul li) {
 list-style: disc;
 }
-.page-content ol li, .page-content ol li {
+.page-content ol li:not(.card-post ol li), .page-content ul li:not(.card-post ul li) {
 list-style: decimal;
 }
 </style>
-    
+

@@ -277,4 +277,14 @@ list-style: disc;
 .page-content ol li, .page-content ol li {
 list-style: decimal;
 }
+
+.card-blog .post-short-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    /*max-height: calc(1.5em * 3);*/
+}
 </style>

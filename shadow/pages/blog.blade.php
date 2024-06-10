@@ -47,22 +47,7 @@
                     <div class="row">
                         @if (! empty($posts))
                             @foreach($posts as $post)
-                                <div class="col-lg-4 py-3">
-                                    <div class="card-blog">
-                                        <div class="header">
-                                            @php($banner = $post->data['banner'][0]['image']['url'] ?? null)
-                                            @if ($banner)
-                                                <div class="post-thumb" style="background-image: url('{{ $banner }}'); background-position: center center; background-size: cover;">
-{{--                                                    <img src="../assets/img/blog/blog-2.jpg" alt="">--}}
-                                                </div>
-                                            @endif
-                                        </div>
-                                        <div class="body">
-                                            <h5 class="post-title"><a href="{{ route('posts.single', $post->slug) }}">{{ $post->name }}</a></h5>
-                                            <div class="post-date">Posted on <a href="{{ route('posts.single', $post->slug) }}">{{ $post->created_at?->format('F d, Y') ?? '' }}</a></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @includeIf('themes.' . current_theme() . '.blocks.post', ['post' => $post, 'class' => 'col-lg-6'])
                             @endforeach
                         @endif
                     </div>
@@ -104,6 +89,6 @@
     </div>
 
     <section class="container py-0 page-content">
-            @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
-        </section>
+        @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
+    </section>
 @endsection

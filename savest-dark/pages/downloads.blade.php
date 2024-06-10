@@ -29,7 +29,7 @@
         @endif
 
         @if (isset($categories))
-            @includeif('themes.' . current_theme() . '.editor.index', ['blocks' => $data['content']['blocks'] ?? []])
+            @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
 
             @if ($categories->isNotEmpty())
                 <div class="event-section section section-padding pb-0 pt-6">

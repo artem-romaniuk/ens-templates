@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="{{ $class ?? 'col-lg-4' }}">
     <div class="ticket-item">
         @php($banner = $post->data['banner'][0]['image']['url'] ?? null)
         @if ($banner)
@@ -6,10 +6,10 @@
 
             </div>
         @endif
-        <div class="down-content pt-2">
+        <div class="down-content pt-2" style="height: 240px;">
             <h4 class="mb-2">{{ $post->name }}</h4>
-            <ul>
-                <li><i class="fa fa-clock-o mt-1"></i> {{ $post->created_at?->format('F d, Y') ?? '' }}</li>
+            <ul style="padding: 0; margin: 0;">
+                <li style="list-style: none;"><i class="fa fa-clock-o mt-1"></i> {{ $post->created_at?->format('F d, Y') ?? '' }}</li>
             </ul>
             <div class="post-short-description">
                 {!! $post->description ?? '' !!}

@@ -41,6 +41,6 @@
     </header>
 
     <section class="container py-0 page-content">
-            @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
-        </section>
+        @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
+    </section>
 @endsection

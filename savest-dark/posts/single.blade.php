@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <div class="post-details-info text-center mt-n2">
+                        <div class="post-details-info text-center mt-n2" style="margin-bottom: 16px;">
                             <div class="meta">
                                 @if (isset($author))
                                     <span class="author">By <a href="#">{{ $author->full_name }}</a></span>
@@ -38,15 +38,13 @@
 
                     <div class="col-lg-10">
                         @if (! empty($description))
-                            <div class="post-details-content mt-0">
+                            <div class="post-details-content mt-0" style="padding-bottom: 24px;">
                                 {!! $description !!}
                             </div>
                         @endif
 
                         <div class="post-details-content mt-0">
-                            @foreach($data['content']['blocks'] ?? [] as $block)
-                                @includeif('themes.' . current_theme() . '.editor.blocks.' . $block['type'], ['data' => $block['data'], 'parameters' => $block['tunes']['parameters'] ?? null])
-                            @endforeach
+                            @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' =>  $content ?? ''])
                         </div>
                     </div>
                 </div>
