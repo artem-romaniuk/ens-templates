@@ -210,4 +210,7 @@ list-style: disc;
 .page-content ol li, .page-content ol li {
 list-style: decimal;
 }
+.page-content p {
+    margin-bottom: 1em;
+}
 </style>
