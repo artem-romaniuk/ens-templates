@@ -19,6 +19,12 @@
         padding-left: 10px;
         margin-bottom: 10px;
     }
+
+    @media (max-width: 1280px) {
+        .navbar-nav .dropdown-menu {
+            border: none!important;
+        }
+    }
 </style>
 @endif
 
@@ -28,27 +34,27 @@
             class="navbar-nav @if($align == 'left') mr-auto @elseif($align == 'right') ml-auto @elseif($align == 'center') m-auto @endif">
             @include('themes.' . current_theme() . '.components.menu.main.items', ['items' => $items])
 
-            <li class="nav-item">
+            <li class="nav-item" style="margin-bottom: 2px;">
                 @auth()
                     @if (has_any_access(['*']))
-                        <a class="btn btn-primary ml-lg-2" href="{{ main_admin_url() }}" rel="nofollow">Admin</a>
+                        <a class="btn btn-primary ml-lg-2" style="width: 120px;" href="{{ main_admin_url() }}" rel="nofollow">Admin</a>
                     @endif
                 @else
-                    <a class="btn btn-primary ml-lg-2" href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
+                    <a class="btn btn-primary ml-lg-2" style="width: 120px;" href="{{ route('login') }}" target="_blank" rel="nofollow">Log In</a>
                 @endauth
             </li>
 
             @auth()
                 @if (! is_admin())
-                    <li class="nav-item">
-                        <a class="btn btn-primary ml-lg-2" href="{{ main_profile_url() }}" rel="nofollow">Profile</a>
+                    <li class="nav-item" style="margin-bottom: 2px;">
+                        <a class="btn btn-primary ml-lg-2" style="width: 120px;" href="{{ main_profile_url() }}" rel="nofollow">Profile</a>
                     </li>
                 @endif
             @endauth
 
             @auth()
-                <li>
-                    <a class="btn btn-primary ml-lg-2" href="{{ route('logout') }}" rel="nofollow">Logout</a>
+                <li class="nav-item" style="margin-bottom: 2px;">
+                    <a class="btn btn-primary ml-lg-2" style="width: 120px;" href="{{ route('logout') }}" rel="nofollow">Logout</a>
                 </li>
             @endauth
         </ul>
@@ -56,20 +62,21 @@
 @endif
 
 <script>
-    const expandButtons = document.querySelectorAll(".expand-submenu");
+    document.addEventListener('DOMContentLoaded', function () {
+        const expandButtons = document.querySelectorAll(".expand-submenu");
+        expandButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const submenu = button.parentElement.nextElementSibling
+                if (submenu.style.display == '' || submenu.style.display == 'none') {
+                    submenu.style.display = 'block'
+                } else {
+                    submenu.style.display = 'none'
+                }
 
-    expandButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const submenu = button.parentElement.nextElementSibling
-            if (submenu.style.display == '' || submenu.style.display == 'none') {
-                submenu.style.display = 'block'
-            } else {
-                submenu.style.display = 'none'
-            }
-
-            const icon = button.children[0]
-            icon.classList.toggle("bi-plus");
-            icon.classList.toggle("bi-dash");
+                const icon = button.children[0]
+                icon.classList.toggle("bi-plus");
+                icon.classList.toggle("bi-dash");
+            });
         });
     });
 </script>
