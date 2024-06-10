@@ -198,10 +198,10 @@ a:not(.default-link ) {
 .event-item .content .details .title a:hover {
     color: {{ $template_colors['additional_elements']['base'] }} !important;
 }
-.feature-item:after, 
-.scroll-to-top, 
-.swiper-pagination-bullet-active, 
-.sidebar-search-widget form button, 
+.feature-item:after,
+.scroll-to-top,
+.swiper-pagination-bullet-active,
+.sidebar-search-widget form button,
 .sidebar-category-list li a.active,
 .sidebar-category-list li a:hover {
     background-color: {{ $template_colors['additional_elements']['base'] }} !important;
@@ -242,14 +242,14 @@ padding: 0 10px;
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
 }
-.page-content ul, ol {
+.page-content ul:not(.post-item ul), ol:not(.post-item ol) {
 padding: inherit;
 margin-left: 1em;
 }
-.page-content ul li {
+.page-content ul li:not(.post-item ul li) {
 list-style: disc;
 }
-.page-content ol li, .page-content ol li {
+.page-content ol li:not(.post-item ol li), .page-content ul li:not(.post-item ul li) {
 list-style: decimal;
 }
 </style>
