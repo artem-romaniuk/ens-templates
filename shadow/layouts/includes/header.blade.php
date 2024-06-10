@@ -59,8 +59,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <x-menu-component layout="main" :align="$align" />
-
-
         </div>
     </nav>
 @endif

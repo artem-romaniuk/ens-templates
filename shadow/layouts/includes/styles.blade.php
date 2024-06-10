@@ -287,4 +287,11 @@ list-style: decimal;
     line-height: 1.5;
     /*max-height: calc(1.5em * 3);*/
 }
+
+@media (max-width: 1280px) {
+    .navbar {
+        overflow-y: auto;
+        max-height: 100%;
+    }
+}
 </style>

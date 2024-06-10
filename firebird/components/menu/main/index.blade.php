@@ -95,62 +95,62 @@
 @endif
 
 <script>
-    const expandButtons = document.querySelectorAll(".expand-submenu");
+    document.addEventListener('DOMContentLoaded', function () {
+        const expandButtons = document.querySelectorAll(".expand-submenu");
 
-    expandButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const submenu = button.parentElement.nextElementSibling
-            if (submenu.style.visibility && submenu.style.visibility == 'visible') {
-                submenu.style.visibility = 'hidden'
-                submenu.style.opacity = 0
-            } else {
-                submenu.style.visibility = 'visible'
-                submenu.style.opacity = 1
-            }
-
-            const icon = button.children[0]
-            icon.classList.toggle("bi-plus");
-            icon.classList.toggle("bi-dash");
-        });
-    });
-
-    window.addEventListener('click', function(e){
-        const dropDownMenus = document.querySelectorAll('.dropdown-menu')
-        let clickInsideDropdownMenu = false
-        dropDownMenus.forEach(el => {
-            if (el.contains(e.target)) {
-                clickInsideDropdownMenu = true
-            }
-        })
-
-        const expandMenuButtons = document.querySelectorAll('.expand-submenu')
-        let clickInsideExpandMenuButton = false
-        expandMenuButtons.forEach(el => {
-            if (el.contains(e.target)) {
-                expandMenuButtons = true
-            }
-        })
-
-        if (! clickInsideDropdownMenu && ! clickInsideExpandMenuButton) {
-            expandButtons.forEach(button => {
+        expandButtons.forEach(button => {
+            button.addEventListener("click", () => {
                 const submenu = button.parentElement.nextElementSibling
-
                 if (submenu.style.visibility && submenu.style.visibility == 'visible') {
                     submenu.style.visibility = 'hidden'
                     submenu.style.opacity = 0
-
-                    const icon = button.children[0]
-                    icon.classList.toggle("bi-plus");
-                    icon.classList.toggle("bi-dash");
+                } else {
+                    submenu.style.visibility = 'visible'
+                    submenu.style.opacity = 1
                 }
 
-
+                const icon = button.children[0]
+                icon.classList.toggle("bi-plus");
+                icon.classList.toggle("bi-dash");
             });
-        }
+        });
 
-        // if (!document.getElementById('l2').contains(e.target) && (!document.getElementById('logo-menu').contains(e.target))){
-        //     alert("Clicked outside l2 and logo-menu");
-        //     document.getElementById('l2').style.height="0px"; //the same code you've used to hide the menu
-        // }
-    })
+        window.addEventListener('click', function (e) {
+            const dropDownMenus = document.querySelectorAll('.dropdown-menu')
+            let clickInsideDropdownMenu = false
+            dropDownMenus.forEach(el => {
+                if (el.contains(e.target)) {
+                    clickInsideDropdownMenu = true
+                }
+            })
+
+            let expandMenuButtons = document.querySelectorAll('.expand-submenu')
+            let clickInsideExpandMenuButton = false
+            expandMenuButtons.forEach(el => {
+                if (el.contains(e.target)) {
+                    clickInsideExpandMenuButton = true
+                }
+            })
+
+            if (!clickInsideDropdownMenu && !clickInsideExpandMenuButton) {
+                expandButtons.forEach(button => {
+                    const submenu = button.parentElement.nextElementSibling
+
+                    if (submenu.style.visibility && submenu.style.visibility == 'visible') {
+                        submenu.style.visibility = 'hidden'
+                        submenu.style.opacity = 0
+
+                        const icon = button.children[0]
+                        icon.classList.toggle("bi-plus");
+                        icon.classList.toggle("bi-dash");
+                    }
+                });
+            }
+
+            // if (!document.getElementById('l2').contains(e.target) && (!document.getElementById('logo-menu').contains(e.target))){
+            //     alert("Clicked outside l2 and logo-menu");
+            //     document.getElementById('l2').style.height="0px"; //the same code you've used to hide the menu
+            // }
+        });
+    });
 </script>
