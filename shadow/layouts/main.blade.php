@@ -127,6 +127,23 @@
                         {{ settings('company.email') }}
                     </a>
                 @endif
+
+                @if (! empty(settings('company.logo.' . settings('logo_positions.footer'))))
+                    <div style="width: 100%;">
+                        <a href="{{ route('home') }}" class="navbar-brand">
+                            <img
+                                src="{{ settings('company.logo.' . settings('logo_positions.footer')) }}"
+                                alt="{{ settings('company.name') }}"
+                                class="logo-main"
+                                style="
+                                @if(! empty(settings('logo_settings.footer.height')) && settings('logo_settings.footer.height') != 'auto') height: {{ settings('logo_settings.footer.height') }}px !important; max-height: none; @endif
+                                @if(! empty(settings('logo_settings.footer.width')) && settings('logo_settings.footer.width') != 'auto') width: {{ settings('logo_settings.footer.width') }}px !important; max-width: none; @endif
+                                @if(! empty(settings('logo_settings.footer.opacity'))) opacity: {{ settings('logo_settings.footer.opacity') }}%; @endif
+                            "
+                            >
+                        </a>
+                    </div>
+                @endif
             </div>
         </div>
 
