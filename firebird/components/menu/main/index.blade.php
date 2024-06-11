@@ -153,4 +153,10 @@
             // }
         });
     });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) {
+            location.reload();
+        }
+    });
 </script>
