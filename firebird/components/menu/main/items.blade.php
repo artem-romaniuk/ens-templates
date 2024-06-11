@@ -8,7 +8,7 @@
             >{{ $item['name'] }}</a>
 
             @if (! empty($item['children']))
-                <span class="expand-submenu"><i class="bi bi-plus"></i></span>
+                <span class="expand-submenu" style="width: 30px;"><i class="bi bi-plus"></i></span>
             @endif
         </div>
 
