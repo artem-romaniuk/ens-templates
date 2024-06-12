@@ -1,4 +1,4 @@
-@if (!preg_match('/iPhone|iPad|iPod|Macintosh|Mac OS X/', $_SERVER['HTTP_USER_AGENT']))
+@if (!preg_match('/iPhone|iPad|iPod|Macintosh|Mac OS X/', $_SERVER['HTTP_USER_AGENT'] ?? ''))
     @php return; @endphp
 @endif
 
