@@ -62,12 +62,7 @@
                 <div class="col-auto">
                     @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))
                         @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
-                            <div class="header-logo" style="
-                                    @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; @endif
-                                    @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') == 'auto') height: 250px !important; @endif
-                                    @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; @endif
-                                    @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') == 'auto') width: 250px !important; @endif
-                                ">
+                            <div class="header-logo">
                                 <a href="{{ route('home') }}">
                                     <img
                                         class="logo-main"
