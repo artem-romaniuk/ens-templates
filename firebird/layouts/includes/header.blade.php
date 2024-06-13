@@ -4,15 +4,14 @@
             @if (($template_settings['header']['logo_position']['value'] ?? '') == 'under_menu' && ! empty($template_settings['header']['logo_position']['apply']))
                 @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                     <a href="{{ route('home') }}" class="navbar-brand">
-                        <img 
-                            src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                            alt="{{ settings('company.name') }}" 
+                        <img
+                            src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                            alt="{{ settings('company.name') }}"
                             style="
-                                max-height: 50px; width: auto;
                                 @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                 @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                 @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                            " 
+                            "
                         />
                     </a>
                 @endif
@@ -65,20 +64,20 @@
                 @if (($template_settings['header']['logo_position']['value'] ?? '') == 'inline_menu' || empty($template_settings['header']['logo_position']['apply']))
                     @if (! empty(settings('company.logo.' . settings('logo_positions.header'))))
                         <a href="{{ route('home') }}" class="navbar-brand">
-                            <img 
-                                src="{{ settings('company.logo.' . settings('logo_positions.header')) }}" 
-                                alt="{{ settings('company.name') }}" 
+                            <img
+                                src="{{ settings('company.logo.' . settings('logo_positions.header')) }}"
+                                alt="{{ settings('company.name') }}"
                                 style="
                                 max-height: 50px; width: auto;
                                     @if(! empty(settings('logo_settings.header.height')) && settings('logo_settings.header.height') != 'auto') height: {{ settings('logo_settings.header.height') }}px !important; max-height: none; @endif
                                     @if(! empty(settings('logo_settings.header.width')) && settings('logo_settings.header.width') != 'auto') width: {{ settings('logo_settings.header.width') }}px !important; max-width: none; @endif
                                     @if(! empty(settings('logo_settings.header.opacity'))) opacity: {{ settings('logo_settings.header.opacity') }}%; @endif
-                                " 
+                                "
                             />
                         </a>
                     @endif
                 @endif
-                
+
                 <button class="navbar-toggler" style="@if($align == 'burger') display: block !important; @endif" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class=""> </span>
                 </button>
