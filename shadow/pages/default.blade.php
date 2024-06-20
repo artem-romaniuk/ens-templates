@@ -22,7 +22,7 @@
                             style="
                                 @if (! empty($banner['title']['color']) && ! empty($banner['title']['text'])) color: {{ $banner['title']['color'] }} !important; @endif
                                 @if (! empty($banner['title']['font_size']) && ! empty($banner['title']['text'])) font-size: {{ $banner['title']['font_size'] }}px; @endif">
-                            {{ ! empty($banner['title']['text']) ? $banner['title']['text'] : null ?? ($data['banner'][0]['image']['url'] ? null : $title) ?? ($data['banner'][0]['image']['url'] ? null : $name) ?? '' }}
+                            {{ (! empty($banner['title']['text']) ? $banner['title']['text'] : null) ?? (! empty($banner['image']['url']) ? null : $title) ?? (! empty($banner['image']['url']) ? null : $name) ?? null }}
                         </h1>
 
                         @if (! empty($banner['subtitle']['text']))
