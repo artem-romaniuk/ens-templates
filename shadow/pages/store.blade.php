@@ -70,33 +70,27 @@
         </div>
     @endif
 
-    @if (isset($view) && ($view == 'cart' || $view == 'checkout'))
+    @if (isset($view) && $view == 'cart')
         <div class="page-section pt-2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        @if ($view == 'checkout')
-                            <div>Order Information</div>
-                        @endif
-
                         <a href="{{ route('store.index') }}" class="btn btn-primary">
                             Continue Shopping
                         </a>
 
-                        @if ($view != 'checkout')
-                            <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('emptyCart').submit();">
-                                Empty Cart
-                            </a>
+                        <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('emptyCart').submit();">
+                            Empty Cart
+                        </a>
 
-                            <form id="emptyCart" action="{{ route('store.cart.empty') }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                            </form>
+                        <form id="emptyCart" action="{{ route('store.cart.empty') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        </form>
 
-                            <a href="{{ route('store.index', ['view' => 'checkout']) }}" class="btn btn-primary">
-                                Checkout
-                            </a>
-                        @endif
+                        <a href="{{ route('store.index', ['view' => 'checkout']) }}" class="btn btn-primary">
+                            Checkout
+                        </a>
                     </div>
                 </div>
 
@@ -104,7 +98,7 @@
                     <div class="col-lg-12">
                         @if (! empty($cart))
                             @foreach($cart->items as $item)
-                                @includeIf('themes.' . current_theme() . '.blocks.cart-item', ['cart' => $cart, 'item' => $item, 'view' => $view])
+                                @includeIf('themes.' . current_theme() . '.blocks.cart-item', ['item' => $item, 'view' => $view])
                             @endforeach
 
                             <div>
