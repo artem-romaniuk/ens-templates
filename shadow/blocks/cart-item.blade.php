@@ -28,11 +28,14 @@
                 <div class="col-lg-3">
                     @php($availableUnits = available_units_by_product_with_cart($item->product, $cart ?? null))
 
-                    <div>Price: {{ $item->quantity }} * {{ number_format($item->productPrice(), 2) }} = {{ number_format($item->subtotal(), 2) }} USD</div>
-                    <div>Shipping / Handling: {{ number_format($item->product->shipping(), 2) }} USD</div>
+                    <div>Price: {{ $item->quantity }} * {{ number_format($item->productPrice(), 2) }} = {{ number_format($item->subtotal(), 2) }} {{ $currency }}</div>
 
-                    @if ($item->quantity > 1 && $item->product->additionalShippingPerUnit() > 0)
-                        <div>Additional Item S/H (ea): {{ $item->quantity - 1 }} * {{ number_format($item->product->additionalShippingPerUnit(), 2) }} = {{ number_format($item->additionalShipping(), 2) }} USD</div>
+                    @if (\App\Enums\StoreProductChargeType::BASE_SHIPPING_RATE->value != $item->product->charge_type)
+                        <div>Shipping / Handling: {{ number_format($item->product->shippingFirstUnit(), 2) }} {{ $currency }}</div>
+
+                        @if ($item->quantity > 1 && $item->product->additionalShippingPerUnit() > 0)
+                            <div>Additional Item S/H (ea): {{ $item->quantity - 1 }} * {{ number_format($item->product->additionalShippingPerUnit(), 2) }} = {{ number_format($item->additionalShipping(), 2) }} {{ $currency }}</div>
+                        @endif
                     @endif
 
                     <form id="removeCartItem{{ $item->id }}" action="{{ route('store.cart.item.remove', $item->id) }}" method="POST">

@@ -102,8 +102,10 @@
                             @endforeach
 
                             <div>
-                                Base Shipping Charge: $0.00 <br />
-                                Total Due: {{ number_format($cart->total(), 2) }} USD
+                                @if ($base_shipping > 0)
+                                    Base Shipping Charge: {{ $base_shipping }} {{ $currency }}<br />
+                                @endif
+                                Total Due: {{ number_format($cart->total(), 2) }} {{ $currency }}
                             </div>
                         @else
                             <div>Cart is empty</div>
@@ -155,11 +157,63 @@
                                     <div class="divider"></div>
 
                                     <ul class="categories">
+                                        @if (! empty($store_settings['set_all_category_option_as']) && $store_settings['set_all_category_option_as'] == \App\Enums\Store\SetAllCategoryOptionAs::FIRST_ENTRY->value)
+                                            <li>
+                                                <a href="{{ route('store.index', array_merge(request()->query(), ['category' => 0, 'page' => 1])) }}" @if (request('category', 0) == 0) class="active" @endif>
+                                                    All Categories
+                                                </a>
+                                            </li>
+                                        @endif
+
                                         @foreach($categories as $category)
                                             <li>
-                                                <a href="{{ route('store.index', array_merge(array_filter(request()->query()), ['category' => $category->id, 'page' => 1])) }}">{{ $category->name }} <span>({{ $category->products_count }})</span></a>
+                                                <a href="{{ route('store.index', array_merge(request()->query(), ['category' => $category->id, 'page' => 1])) }}" @if (request('category') == $category->id) class="active" @endif>{{ $category->name }} <span>({{ $category->products_count }})</span></a>
                                             </li>
                                         @endforeach
+
+                                        @if (! empty($store_settings['set_all_category_option_as']) && $store_settings['set_all_category_option_as'] == \App\Enums\Store\SetAllCategoryOptionAs::LAST_ENTRY->value)
+                                            <li>
+                                                <a href="{{ route('store.index', array_merge(request()->query(), ['category' => 0, 'page' => 1])) }}" @if (request('category', 0) == 0) class="active" @endif>
+                                                    All Categories
+                                                </a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
+                            @endif
+
+                            @if (isset($store_settings['default_timeframe_selected']) && $store_settings['default_timeframe_selected'] >= 0 && $store_settings['default_timeframe_selected'] != \App\Enums\Store\DefaultTimeframeSelected::NOT_DISPLAYED->value)
+                                <div class="widget-box">
+                                    <h4 class="widget-title">Timeframe</h4>
+                                    <div class="divider"></div>
+
+                                    <ul class="categories">
+                                        <li>
+                                            <a href="{{ route('store.index', array_merge(array_filter(request()->query()), ['timeframe' => \App\Enums\Store\DefaultTimeframeSelected::ALL_LISTINGS->value, 'page' => 1])) }}" @if (request('timeframe', $store_settings['default_timeframe_selected']) == \App\Enums\Store\DefaultTimeframeSelected::ALL_LISTINGS->value) class="active" @endif>
+                                                All Listings
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('store.index', array_merge(array_filter(request()->query()), ['timeframe' => \App\Enums\Store\DefaultTimeframeSelected::WITHIN_1_MONTH->value, 'page' => 1])) }}" @if (request('timeframe', $store_settings['default_timeframe_selected']) == \App\Enums\Store\DefaultTimeframeSelected::WITHIN_1_MONTH->value) class="active" @endif>
+                                                Within 1 month
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('store.index', array_merge(array_filter(request()->query()), ['timeframe' => \App\Enums\Store\DefaultTimeframeSelected::WITHIN_3_MONTHS->value, 'page' => 1])) }}" @if (request('timeframe', $store_settings['default_timeframe_selected']) == \App\Enums\Store\DefaultTimeframeSelected::WITHIN_3_MONTHS->value) class="active" @endif>
+                                                Within 3 month
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('store.index', array_merge(array_filter(request()->query()), ['timeframe' => \App\Enums\Store\DefaultTimeframeSelected::WITHIN_6_MONTHS->value, 'page' => 1])) }}" @if (request('timeframe', $store_settings['default_timeframe_selected']) == \App\Enums\Store\DefaultTimeframeSelected::WITHIN_6_MONTHS->value) class="active" @endif>
+                                                Within 6 month
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('store.index', array_merge(array_filter(request()->query()), ['timeframe' => \App\Enums\Store\DefaultTimeframeSelected::WITHIN_12_MONTHS->value, 'page' => 1])) }}" @if (request('timeframe', $store_settings['default_timeframe_selected']) == \App\Enums\Store\DefaultTimeframeSelected::WITHIN_12_MONTHS->value) class="active" @endif>
+                                                Within 12 month
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             @endif

@@ -9,12 +9,20 @@
                     @endif
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6 position-relative">
+                    @if (! empty($store_settings['days_mark_item_as_new']) && $product->created_at > now()->subDays((int) $store_settings['days_mark_item_as_new']))
+                        <div style="background: #6C55F9;width: fit-content;padding: 2px 15px;color:#ffffff;position: absolute;top: 0;right: 0; font-size: 0.9em">New</div>
+                    @endif
+
                     <h5 class="post-title">{{ $product->name }}</h5>
                     @if (! empty($product->description))
                         <div>
                             {!! $product->description !!}
                         </div>
+                    @endif
+
+                    @if (! empty($store_settings['display_item_updated_at']))
+                        <div>{{ $product->updated_at?->format('m/d/Y') ?? '' }}</div>
                     @endif
                 </div>
 
@@ -24,9 +32,12 @@
                     <form id="addToCart{{ $product->id }}" action="{{ route('store.cart.change', $product->id) }}" method="POST">
                         @csrf
 
-                        <div>Price: {{ number_format(auth()->check() ? $product->member_price : $product->price, 2) }} USD</div>
-                        <div>Shipping / Handling: {{ number_format($product->shipping(), 2) }} USD</div>
-                        <div class="additional-shipping-info" style="display: none;">Additional Item S/H (ea): {{ number_format($product->additionalShippingPerUnit(), 2) }} USD</div>
+                        <div>Price: {{ number_format(auth()->check() ? $product->member_price : $product->price, 2) }} {{ $currency }}</div>
+
+                        @if (\App\Enums\StoreProductChargeType::BASE_SHIPPING_RATE->value != $product->charge_type)
+                            <div>Shipping / Handling: {{ number_format($product->shippingFirstUnit(), 2) }} {{ $currency }}</div>
+                            <div class="additional-shipping-info" style="display: none;">Additional Item S/H (ea): {{ number_format($product->additionalShippingPerUnit(), 2) }} {{ $currency }}</div>
+                        @endif
 
                         @if ($availableUnits > 0)
                             <select name="quantity">
