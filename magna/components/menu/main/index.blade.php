@@ -52,4 +52,21 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle" style="margin-left: auto; font-size: 36px; @if($align == 'burger') display: block !important; @endif"></i>
     </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const icons = Array.from(document.querySelectorAll('.bi.mobile-nav-toggle'));
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 1278) {
+                    navbar.classList.remove('navbar-mobile');
+                    icons.forEach(icon => {
+                        icon.classList.remove('bi-x');
+                        icon.classList.add('bi-list');
+                    });
+                }
+            });
+        });
+    </script>
 @endif

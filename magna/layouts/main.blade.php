@@ -220,7 +220,7 @@
 <script src="{{ theme_asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
 
 <!-- Template Main JS File -->
-<script src="{{ theme_asset('js/main.js') }}"></script>
+<script src="{{ theme_asset('js/main.js') }}?ver=1"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script>
