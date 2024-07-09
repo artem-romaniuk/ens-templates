@@ -13,6 +13,9 @@
                 left: 15px;
             }
         }
+        .bi-chevron-down {
+            padding: 5px;
+        }
     </style>
     <nav id="navbar" class="navbar" style="min-height: 40px;">
         <ul
