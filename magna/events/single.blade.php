@@ -23,7 +23,7 @@
                         @php($image = $event->data['image']['url'] ?? null)
                         @if ($image)
                             <div class="image">
-                                <img src="{{ $image }}" width="350" height="315" alt="{{ $event->title ?? $event->name }}">
+                                <img src="{{ $image }}" style="max-width: 100%; height: auto;" alt="{{ $event->title ?? $event->name }}">
                             </div>
                         @endif
                     </div>
