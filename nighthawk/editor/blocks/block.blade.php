@@ -218,6 +218,10 @@
             <surname-research-component></surname-research-component>
         @endif
 
+        @if ($data['entity'] == 'members')
+            <member-component></member-component>
+        @endif
+
         @if ($data['entity'] == 'gallery' && $data['items']->isNotEmpty())
             <section class="py-0" style="width: 100%;">
                 <div class="container blog">
