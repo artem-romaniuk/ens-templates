@@ -80,9 +80,9 @@
         });
     });
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 1278) {
-            location.reload();
-        }
-    });
+    // window.addEventListener('resize', () => {
+    //     if (window.innerWidth > 1278) {
+    //         location.reload();
+    //     }
+    // });
 </script>
