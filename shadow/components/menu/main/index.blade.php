@@ -80,10 +80,11 @@
         });
     });
 
+    let currentWidth = window.innerWidth;
+
     window.addEventListener('resize', () => {
-        console.log(window.innerWidth)
-        // if (window.innerWidth > 1278) {
-        //     location.reload();
-        // }
+        if (window.innerWidth !== currentWidth && window.innerWidth > 1278) {
+            location.reload();
+        }
     });
 </script>
