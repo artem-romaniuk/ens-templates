@@ -63,28 +63,42 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const expandButtons = document.querySelectorAll(".expand-submenu");
-        expandButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                const submenu = button.parentElement.nextElementSibling
-                if (submenu.style.display == '' || submenu.style.display == 'none') {
-                    submenu.style.display = 'block'
-                } else {
-                    submenu.style.display = 'none'
-                }
+        function normalizeMenuItems() {
+            const expandButtons = document.querySelectorAll(".expand-submenu");
+            expandButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const submenu = button.parentElement.nextElementSibling
+                    if (submenu.style.display == '' || submenu.style.display == 'none') {
+                        submenu.style.display = 'block'
+                    } else {
+                        submenu.style.display = 'none'
+                    }
 
-                const icon = button.children[0]
-                icon.classList.toggle("bi-plus");
-                icon.classList.toggle("bi-dash");
+                    const icon = button.children[0]
+                    icon.classList.toggle("bi-plus");
+                    icon.classList.toggle("bi-dash");
+                });
             });
-        });
-    });
-
-    let currentWidth = window.innerWidth;
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth !== currentWidth && window.innerWidth > 1278) {
-            location.reload();
         }
+
+        normalizeMenuItems();
+
+        window.addEventListener('resize', () => {
+            Array.from(document.querySelectorAll('#navbarContent .dropdown-menu')).forEach((dropdown) => {
+                if (window.innerWidth > 1278) {
+                    if (dropdown.style.display = 'block') {
+                        dropdown.style.display = '';
+                    }
+                }
+            });
+
+            if (window.innerWidth > 1278) {
+                document.querySelectorAll(".expand-submenu").forEach(button => {
+                    const icon = button.children[0]
+                    icon.classList.remove("bi-dash");
+                    icon.classList.add("bi-plus");
+                });
+            }
+        });
     });
 </script>
