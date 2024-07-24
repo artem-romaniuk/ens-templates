@@ -75,20 +75,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a href="{{ route('store.index') }}" class="btn btn-primary">
+                        <a href="{{ route('store.index') }}" class="btn btn-primary custom-button">
                             Continue Shopping
                         </a>
 
-                        <a href="#" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('emptyCart').submit();">
+                        <a href="#" class="btn btn-primary custom-button" onclick="event.preventDefault(); document.getElementById('emptyCart').submit();">
                             Empty Cart
                         </a>
 
-                        <form id="emptyCart" action="{{ route('store.cart.empty') }}" method="POST">
+                        <form id="emptyCart" style="display: none;" action="{{ route('store.cart.empty') }}" method="POST">
                             @csrf
                             @method('DELETE')
                         </form>
 
-                        <a href="{{ route('store.index', ['view' => 'checkout']) }}" class="btn btn-primary">
+                        <a href="{{ route('store.index', ['view' => 'checkout']) }}" class="btn btn-primary custom-button">
                             Checkout
                         </a>
                     </div>
@@ -101,7 +101,7 @@
                                 @includeIf('themes.' . current_theme() . '.blocks.cart-item', ['item' => $item, 'view' => $view])
                             @endforeach
 
-                            <div>
+                                <div style="font-size: 1.1em; font-weight: bold; text-align: right;">
                                 @if ($base_shipping > 0)
                                     Base Shipping Charge: {{ $base_shipping }} {{ $currency }}<br />
                                 @endif

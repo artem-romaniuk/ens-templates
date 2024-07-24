@@ -1,4 +1,4 @@
-<div class="col-lg-12 py-3">
+<div class="col-lg-12 entry mb-4">
     <div class="card-blog" style="height: 100%; max-width: 100%; padding: 16px 0;">
         <div class="container">
             <div class="row" style="min-height: 200px;">
@@ -9,7 +9,7 @@
 
                     <h5 class="post-title" style="font-size: 1em;">{{ $product->name }}</h5>
                     @if (! empty($product->description))
-                            <div style="font-size: 0.9em;">
+                        <div style="font-size: 0.9em;">
                             {!! $product->description !!}
                         </div>
                     @endif
@@ -22,7 +22,7 @@
                 <div class="col-lg-4" style="text-align: right;">
                     @if (! empty($product->getFirstMediaUrl('products')))
                         <img src="{{ $product->getFirstMediaUrl('products') }}" style="max-width: 200px; margin-bottom: 16px;">
-{{--                        <div class="post-thumb" style="background-image: url('{{ $product->getFirstMediaUrl('products') }}'); background-position: top center; background-size: contain; background-repeat: no-repeat; height: 100%; width: 100%;">--}}
+{{--                        <div class="post-thumb" style="background-image: url('{{ $product->getFirstMediaUrl('products') }}'); background-position: top center; background-size: contain; background-repeat: no-repeat; max-height: 300px; height: 100%; width: 100%;">--}}
 {{--                        </div>--}}
                     @endif
 
@@ -41,13 +41,13 @@
                         </div>
 
                         @if ($availableUnits > 0)
-                            <select name="quantity" class="form-control-sm">
+                            <select class="form-control-sm" name="quantity" style="margin: 6px 0; display: inline;">
                                 @for ($i = 1; $i <= $availableUnits; $i++)
                                     <option value="{{ $i }}" @if ($i == 1) selected @endif>{{ $i }}</option>
                                 @endfor
                             </select>
 
-                            <a href="#" class="btn btn-primary custom-button" onclick="event.preventDefault(); document.getElementById('addToCart{{ $product->id }}').submit();">
+                            <a href="#" class="custom-button" onclick="event.preventDefault(); document.getElementById('addToCart{{ $product->id }}').submit();">
                                 Add to Cart
                             </a>
                         @else

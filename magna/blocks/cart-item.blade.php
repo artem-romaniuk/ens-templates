@@ -1,11 +1,11 @@
-<div class="col-lg-12 py-3 px-0">
+<div class="col-lg-12 py-3 entry mb-4">
     <div class="card-blog" style="height: 100%; max-width: 100%; padding: 16px 0;">
         <div class="container">
             <div class="row" style="min-height: 200px;">
                 <div class="col-lg-7">
-                    <h5 class="post-title">{{ $item->product->name }}</h5>
+                    <h5 class="post-title" style="font-size: 1em;">{{ $item->product->name }}</h5>
                     @if (! empty($item->product->description))
-                        <div>
+                        <div style="font-size: 0.9em;">
                             {!! $item->product->description !!}
                         </div>
                     @endif
@@ -44,7 +44,7 @@
                         @csrf
                         @method('DELETE')
 
-                        <a href="#" class="btn btn-primary custom-button" onclick="event.preventDefault(); document.getElementById('removeCartItem{{ $item->id }}').submit();">
+                        <a href="#" class="custom-button" onclick="event.preventDefault(); document.getElementById('removeCartItem{{ $item->id }}').submit();">
                             Remove Item
                         </a>
                     </form>

@@ -1,4 +1,13 @@
 <style>
+.custom-button {
+    display: inline-block;
+    background: #68A4C4;
+    color: #fff;
+    padding: 6px 20px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
 .wp-block-button__link {
     background: #68A4C4;
     border-radius: 0!important;
@@ -147,10 +156,10 @@ body {
 @endif
 
 @if (! empty($template_colors['footer_background']['text']))
-#footer .footer-top .footer-info h3, 
-#footer .footer-top .footer-info p, 
-#footer .footer-top h4, 
-#footer .footer-top .footer-links ul i, 
+#footer .footer-top .footer-info h3,
+#footer .footer-top .footer-info p,
+#footer .footer-top h4,
+#footer .footer-top .footer-links ul i,
 #footer .footer-top .footer-links ul a,
 .copyright,
 .footer-link {
