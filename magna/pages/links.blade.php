@@ -9,8 +9,8 @@
         @if (! empty($data['banner']))
             @php($banner = $data['banner'][0])
             <section class="d-flex justify-content-center flex-column align-items-center page-banner" style="background-image: url('{{ $banner['image']['url'] ?? '' }}'); @if(empty($banner['image']['url'])) height: 100px !important; padding: 30px 0px !important; @endif">
-                <h2 
-                    class="animate__animated animate__fadeInDown text-center" 
+                <h2
+                    class="animate__animated animate__fadeInDown text-center"
                     style="
                         @if (! empty($banner['title']['color']) && ! empty($banner['title']['text'])) color: {{ $banner['title']['color'] }} !important; @endif
                         @if (! empty($banner['title']['font_size']) && ! empty($banner['title']['text'])) font-size: {{ $banner['title']['font_size'] }}px; @endif">
@@ -18,8 +18,8 @@
                 </h2>
 
                 @if (! empty($banner['subtitle']['text']))
-                    <p 
-                        class="animate__animated animate__fadeInUp" 
+                    <p
+                        class="animate__animated animate__fadeInUp text-center"
                         style="
                             @if (! empty($banner['subtitle']['color'])) color: {{ $banner['subtitle']['color'] }}; @endif
                             @if (! empty($banner['subtitle']['font_size'])) font-size: {{ $banner['subtitle']['font_size'] }}px; @endif">

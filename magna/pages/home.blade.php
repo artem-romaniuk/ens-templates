@@ -74,14 +74,14 @@
                 @foreach($data['banner'] as $banner)
                     <div class="carousel-item @if ($loop->first) active @endif" data-banner-image="{{ $banner['image']['url'] ?? '' }}">
                         <div class="carousel-container">
-                            <h2 class="animate__animated animate__fadeInDown" 
+                            <h2 class="animate__animated animate__fadeInDown text-center"
                                 style="
                                     @if (! empty($banner['title']['color'])) color: {{ $banner['title']['color'] }} !important; @endif
                                     @if (! empty($banner['title']['font_size'])) font-size: {{ $banner['title']['font_size'] }}px !important; @endif">
                                 {{ $banner['title']['text'] ?? '' }}
                             </h2>
 
-                            <h4 class="animate__animated animate__fadeInDown" 
+                            <h4 class="animate__animated animate__fadeInDown text-center"
                                 style="
                                     @if (! empty($banner['subtitle']['color'])) color: {{ $banner['subtitle']['color'] }} !important; @endif
                                     @if (! empty($banner['subtitle']['font_size'])) font-size: {{ $banner['subtitle']['font_size'] }}px !important; @endif">
@@ -89,7 +89,7 @@
                             </h4>
 
                             @if (! empty($banner['description']))
-                                <p class="animate__animated animate__fadeInUp" 
+                                <p class="animate__animated animate__fadeInUp text-center"
                                     style="
                                         @if (! empty($banner['description']['color'])) color: {{ $banner['description']['color'] }}; @endif
                                         @if (! empty($banner['description']['font_size'])) font-size: {{ $banner['description']['font_size'] }}px; @endif">
