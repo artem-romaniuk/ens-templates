@@ -8,18 +8,18 @@
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-sm-auto text-center text-sm-start">
-                        <h1 
-                            class="page-header-title" 
+                        <h1
+                            class="page-header-title"
                             style="
-                                @if (! empty($banner['title']['color']) && ! empty($banner['title']['text'])) color: {{ $banner['title']['color'] }} !important; @endif 
+                                @if (! empty($banner['title']['color']) && ! empty($banner['title']['text'])) color: {{ $banner['title']['color'] }} !important; @endif
                                 @if (! empty($banner['title']['font_size']) && ! empty($banner['title']['text'])) font-size: {{ $banner['title']['font_size'] }}px; @endif">
                                 {{ ! empty($banner['title']['text']) ? $banner['title']['text'] : null ?? ($data['banner'][0]['image']['url'] ? null : $title) ?? ($data['banner'][0]['image']['url'] ? null : $name) ?? '' }}
                             </h1>
                             @if (! empty($banner['subtitle']['text']))
-                                <p 
-                                    class="link-nav" 
+                                <p
+                                    class="link-nav"
                                     style="
-                                        @if (! empty($banner['subtitle']['color'])) color: {{ $banner['subtitle']['color'] }}; @endif 
+                                        @if (! empty($banner['subtitle']['color'])) color: {{ $banner['subtitle']['color'] }}; @endif
                                         @if (! empty($banner['subtitle']['font_size'])) font-size: {{ $banner['subtitle']['font_size'] }}px; @endif">
                                     {{ $banner['subtitle']['text'] }}
                                 </p>
@@ -37,6 +37,6 @@
     @endif
 
     <section class="container py-0 page-content">
-            @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
-        </section>
+        @includeif('themes.' . current_theme() . '.layouts.includes.content', ['content' => $data['content'] ?? ''])
+    </section>
 @endsection
