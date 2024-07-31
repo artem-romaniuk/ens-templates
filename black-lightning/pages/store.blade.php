@@ -118,7 +118,7 @@
                             @endif
 
                             <div class="sidebar-search-widget mb-4">
-                                <form action="{{ route('facts.list') }}" method="get">
+                                <form action="{{ route('store.index') }}" method="get">
                                     <input class="form-control search-input" name="search" type="search" placeholder="Search here" value="{{ request('search') }}">
                                     @foreach(array_filter(request()->query() ?? []) as $name => $value)
                                         @continue($name == 'search')
