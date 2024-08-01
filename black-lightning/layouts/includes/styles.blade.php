@@ -255,7 +255,7 @@ margin-left: 1em;
 .page-content ul li:not(.post-item ul li) {
 list-style: disc;
 }
-.page-content ol li:not(.post-item ol li), .page-content ul li:not(.post-item ul li) {
+.page-content ol li:not(.post-item ol li) {
 list-style: decimal;
 }
 </style>
