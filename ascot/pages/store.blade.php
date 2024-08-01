@@ -116,7 +116,7 @@
                                         </div>
 
                                         <div class="col-lg-12">
-                                            <form action="{{ route('facts.list') }}" class="contact-form" method="get">
+                                            <form action="{{ route('store.index') }}" class="contact-form" method="get">
                                                 <fieldset>
                                                     <input class="form-control search-input mb-1" name="search" type="search" placeholder="Search here" value="{{ request('search') }}">
                                                     @foreach(array_filter(request()->query() ?? []) as $name => $value)

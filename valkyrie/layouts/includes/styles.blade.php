@@ -1,4 +1,7 @@
 <style>
+.custom-button {
+    padding: 4px 12px;
+}
 .wp-block-button__link {
     background: #59ab6e;
     border-radius: 0.25rem!important;
