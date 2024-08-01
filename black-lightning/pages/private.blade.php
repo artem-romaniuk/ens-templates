@@ -5,7 +5,9 @@
         <div>
             <h3 style="text-align: center">Sorry, please log in as a member to view this page.</h3>
 
-            <a href="{{ route('login') }}" class="btn btn-primary" style="display: block; margin: 0 auto; width: fit-content">Log In</a>
+            @if (!auth()->check())
+                <a href="{{ route('login') }}" class="btn btn-primary" style="display: block; margin: 0 auto; width: fit-content">Log In</a>
+            @endif
         </div>
     </div>
 @endsection

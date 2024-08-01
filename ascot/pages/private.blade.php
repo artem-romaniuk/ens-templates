@@ -7,9 +7,11 @@
                 <div>
                     <h3 style="text-align: center">Sorry, please log in as a member to view this page.</h3>
 
-                    <div class="text-center mt-4">
-                        <a href="{{ route('login') }}" class="button">Log In</a>
-                    </div>
+                    @if (!auth()->check())
+                        <div class="text-center mt-4">
+                            <a href="{{ route('login') }}" class="button">Log In</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

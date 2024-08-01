@@ -11,9 +11,11 @@
                 <div>
                     <h3 style="text-align: center">Sorry, please log in as a member to view this page.</h3>
 
-                    <div class="button text-center">
-                        <a href="{{ route('login') }}" class="btn btn-primary ml-lg-2">Log In</a>
-                    </div>
+                    @if (!auth()->check())
+                        <div class="button text-center">
+                            <a href="{{ route('login') }}" class="btn btn-primary ml-lg-2">Log In</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
